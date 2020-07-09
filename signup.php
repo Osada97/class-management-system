@@ -1,4 +1,5 @@
 <?php include('inc/header.php')?>
+<?php require_once("inc/connection.php"); ?>
 
 <?php  
     
