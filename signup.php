@@ -1,4 +1,4 @@
-<?php require_once('inc/connection.php'); ?>
+<?php include('inc/header.php')?>
 
 <?php  
     
@@ -197,3 +197,4 @@
 </body>
 <?php mysqli_close($connection); ?>
 </html>
+<?php include('inc/footer.php')?>
