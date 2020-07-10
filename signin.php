@@ -1,7 +1,7 @@
 <?php include('inc/header.php')?>
 <?php include ('inc/nav.php')?>
-<?php require_once("inc/connection.php"); ?>
-	
+
+<?php	
 	$errors = array();
 
 	if(isset($_POST['submit'])){
@@ -80,9 +80,10 @@
 </head>
 <body>
 
-	<div class="main_container">
+	<div class="container text-center mt-4 mb-4">
+		
 		<h2>Sign In</h2>
-
+	</div>
 		<!-- display errors -->
 		<?php 
 			echo "<div class ='errors'>";
@@ -94,20 +95,35 @@
 			echo "</div>";
 
 		?>
-
-		<form action="signin.php" method="POST" autocomplete="false">
-			<p>
-				<label for="email">Email Address:</label>
-				<input type="text" name="email" id="email" autofocus>
-			</p>
-			<p>
-				<label for="password">Password:</label>
-				<input type="password" name="password" id="password">
-			</p>
-				<input type="submit" value="Sign In" name="submit">
-		</form>
-	</div>
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 	
+<form>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12 text-center">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </div>
+</form>
+</div>	
+<div class="col-md-4"></div>
+
+
+
+
 </body>
 <?php mysqli_close($connection); ?>
 </html>
