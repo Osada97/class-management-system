@@ -1,6 +1,6 @@
 <?php include('inc/header.php')?>
 <?php include ('inc/nav.php')?>
-<?php require_once("inc/connection.php"); ?>
+
 
 <?php  
     
@@ -146,9 +146,10 @@
 </head>
 <body>
 
-    <div class="main_container">
+    <div class="container text-center mt-4">
 
         <h2>Sign Up</h2>
+    </div>
 
         <?php  
 
@@ -161,38 +162,62 @@
             }
 
         ?>
-
+        <div class="row mt-4">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 ">
         <form action="signup.php" method="POST">
-            <p>
-                <label for="firstname">First Name:</label>
-                <input type="text" name="firstname" id="firstname" autofocus value="<?php echo($firstname) ?>">
-            </p>
-            <p>
-                <label for="lastname">Last Name:</label>
-                <input type="text" name="lastname" id="lastname" value="<?php echo($lastname) ?>">
-            </p>
-            <p>
-                <label for="username">User Name:</label>
-                <input type="text" name="username" id="username" value="<?php echo($username) ?>">
-            </p>
-            <p>
-                <label for="email">Email Address:</label>
-                <input type="email" name="email" id="email" value="<?php echo($email) ?>">
-            </p>
-            <p>
-                <label for="phonenumber">Phone Number:</label>
-                <input type="text" name="phonenumber" id="phonenumber" value="<?php echo($phonenumber) ?>">
-            </p>
-            <p>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
-            </p>
-            <p>
-                <label for="cpassword">Confirm Password:</label>
-                <input type="password" name="cpassword" id="cpassword">
-            </p>
-            <input type="submit" name="submit" value="submit">
-        </form>    
+            <div class="form-group row">
+                <label for="firstname" class="col-sm-4 col-form-label">First Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="firstname">
+            </div>
+            </div>
+            <div class="form-group row">
+                <label for="lastname" class="col-sm-4 col-form-label">Last Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="lastname">
+            </div>
+            </div>
+            <div class="form-group row">
+                <label for="username" class="col-sm-4 col-form-label">Username</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="username">
+            </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="email">
+            </div>
+            </div>
+            <div class="form-group row">
+                <label for="phonenumber" class="col-sm-4 col-form-label">Phone No</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="phone_no">
+            </div>
+            </div>
+            <div class="form-group row">
+                <label for="password1" class="col-sm-4 col-form-label">Password</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" id="password1">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password2" class="col-sm-4 col-form-label">Confirm Password</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" id="password2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <input class="btn btn-primary" type="submit" name="submit" value="submit">
+                </div>
+            </div>
+        </form> 
+        </div> 
+        <div class="col-md-4"></div>
+
+        </div>  
 
     </div><!--main_container-->
 
