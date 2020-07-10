@@ -5,3 +5,8 @@
     overflow: hidden;
 }
 
+.admin-search{
+    border: 1px solid gray;
+    border-radius: 30px;
+    padding: 10px;
+}
