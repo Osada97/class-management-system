@@ -1,4 +1,5 @@
 <?php include ('inc/header.php') ?>
+<?php include ('inc/nav.php')?>
 
 <div class="container">
     <h1 class="text-center">courses Available</h1>
