@@ -170,43 +170,43 @@
             <div class="form-group row">
                 <label for="firstname" class="col-sm-4 col-form-label">First Name</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="firstname">
+                <input type="text" class="form-control" id="firstname" name="firstname">
             </div>
             </div>
             <div class="form-group row">
                 <label for="lastname" class="col-sm-4 col-form-label">Last Name</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="lastname">
+                <input type="text" class="form-control" id="lastname" name="lastname">
             </div>
             </div>
             <div class="form-group row">
                 <label for="username" class="col-sm-4 col-form-label">Username</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="username">
+                <input type="text" class="form-control" id="username" name="username">
             </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-4 col-form-label">Email</label>
             <div class="col-sm-8">
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" name="email">
             </div>
             </div>
             <div class="form-group row">
                 <label for="phonenumber" class="col-sm-4 col-form-label">Phone No</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="phone_no">
+                <input type="text" class="form-control" id="phone_no" name="phonenumber">
             </div>
             </div>
             <div class="form-group row">
                 <label for="password1" class="col-sm-4 col-form-label">Password</label>
                 <div class="col-sm-8">
-                    <input type="password" class="form-control" id="password1">
+                    <input type="password" class="form-control" id="password1" name="password">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="password2" class="col-sm-4 col-form-label">Confirm Password</label>
                 <div class="col-sm-8">
-                    <input type="password" class="form-control" id="password2">
+                    <input type="password" class="form-control" id="password2" name="cpassword">
                 </div>
             </div>
             <div class="row">

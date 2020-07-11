@@ -53,8 +53,8 @@
       <div class="sidebar-heading">Admin Area</div>
       <div class="list-group list-group-flush">
         <a href="../admin/admin_dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="../admin/admin_short.php" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="../admin/overview.php" class="list-group-item list-group-item-action bg-light">Overview</a>
+        <a href="../admin/admin_student.php" class="list-group-item list-group-item-action bg-light">Manage Students</a>
+        <a href="../admin/admin_teacher.php" class="list-group-item list-group-item-action bg-light">Manage Teachers</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>

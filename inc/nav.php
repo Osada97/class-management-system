@@ -12,6 +12,7 @@
                 <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="../class-management/signin.php">Sign In</a>
                 <a class="nav-item nav-link" href="../class-management/signup.php">Sign Up</a>
+                <a class="nav-item nav-link" href="../class-management/admin/admin_dashboard.php">Admin</a>
             </div>
         </div>
         </div>
