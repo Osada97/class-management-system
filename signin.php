@@ -1,5 +1,6 @@
 <?php include('inc/header.php')?>
 <?php include ('inc/nav.php')?>
+<?php require_once ('inc/connection.php')?>
 
 <?php	
 	$errors = array();
