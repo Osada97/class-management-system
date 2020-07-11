@@ -1,4 +1,4 @@
-<?php include('inc/header.php')?>
+<?php include('../inc/header.php')?>
 <style>
 #wrapper {
     overflow-x: hidden;
@@ -52,9 +52,9 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Admin Area</div>
       <div class="list-group list-group-flush">
-        <a href="../class-management/admin_dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="../class-management/admin_short.php" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="../class-management/overview.php" class="list-group-item list-group-item-action bg-light">Overview</a>
+        <a href="../admin/admin_dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="../admin/admin_short.php" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+        <a href="../admin/overview.php" class="list-group-item list-group-item-action bg-light">Overview</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>

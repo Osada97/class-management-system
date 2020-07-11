@@ -4,7 +4,7 @@
   </div>
   <!-- /#wrapper -->
 
-  <?php include('inc/footer.php')?>
+  <?php include('../inc/footer.php')?>
 
   <!-- Menu Toggle Script -->
   <script>
@@ -13,3 +13,5 @@
       $("#wrapper").toggleClass("toggled");
     });
   </script>
+
+  
