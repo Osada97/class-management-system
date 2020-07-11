@@ -128,5 +128,6 @@
 </body>
 <?php mysqli_close($connection); ?>
 </html>
-
+<div class="container text-center">
 <?php include('inc/footer.php')?>
+</div>
