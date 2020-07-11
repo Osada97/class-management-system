@@ -104,6 +104,10 @@
           echo "<script>";
             echo "alert('{$first_name} Registered')";
           echo "</script>";
+          /* 
+            ?email can send in here
+          */
+
         }
         else{
           print_r(mysqli_error($connection));
@@ -145,7 +149,7 @@
           ?>
 
           <!-- teacher add form -->
-          <form action="admin_short.php" method="POST">
+          <form action="teacherSignUp.php" method="POST">
 
               <p>
                 <label for="fname">First Name:</label>
