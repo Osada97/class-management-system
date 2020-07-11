@@ -1,6 +1,6 @@
 <?php include('inc/header.php')?>
 <?php include ('inc/nav.php')?>
-<?php require_once ('inc/connection.php')?>
+<?php require_once("inc/connection.php"); ?>
 
 <?php	
 	$errors = array();
@@ -12,7 +12,7 @@
 
 		//checking fields are empty or not
 		if(empty(trim($_POST['email']))){
-			$errors[] = "User name Field Is Required";
+			$errors[] = "Email Field Is Required";
 		}
 		if(empty(trim($_POST['password']))){
 			$errors[] = "Password Field Is Required";
@@ -20,11 +20,17 @@
 
 		//checking fields limit
 		if(strlen($email) > 200){
-			$errors[] = "User name Field Must Be Less Than 20 Characters";
+			$errors[] = "Email Field Must Be Less Than 20 Characters";
 		}
 		if(strlen($password) > 12){
 			$errors[] = "Password Field Must Be Less Than 12 Characters";
 		}
+
+		//checking valid email entered
+		if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && !empty(trim($_POST['email']))){
+			$errors[] = "Please Enter Valid Email";
+		}
+		
 
 
 		if(empty($errors)){
@@ -47,7 +53,8 @@
 
 					if($result){
 						if(mysqli_num_rows($result)==1){
-							header("Location:teacher_dashboard.php");
+							//header("Location:teacher_dashboard.php");
+							echo "WELCOME TEACHER";
 						}
 						else{
 							echo "admin";
@@ -81,10 +88,9 @@
 </head>
 <body>
 
-	<div class="container text-center mt-4 mb-4">
-		
+	<div class="main_container">
 		<h2>Sign In</h2>
-	</div>
+
 		<!-- display errors -->
 		<?php 
 			echo "<div class ='errors'>";
@@ -96,38 +102,22 @@
 			echo "</div>";
 
 		?>
-<div class="row">
-	<div class="col-md-4"></div>
-	<div class="col-md-4">
+
+		<form action="signin.php" method="POST" autocomplete="false">
+			<p>
+				<label for="email">Email Address:</label>
+				<input type="text" name="email" id="email" autofocus>
+			</p>
+			<p>
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password">
+			</p>
+				<input type="submit" value="Sign In" name="submit">
+		</form>
+	</div>
 	
-<form action="signin.php" method="POST" >
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3">
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-12 text-center">
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
-  </div>
-</form>
-</div>	
-<div class="col-md-4"></div>
-
-
-
-
 </body>
 <?php mysqli_close($connection); ?>
 </html>
-<div class="container text-center">
+
 <?php include('inc/footer.php')?>
-</div>
