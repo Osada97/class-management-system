@@ -1,11 +1,15 @@
-<?php  
+<?php
+$servername = "sql12.freemysqlhosting.net";
+$username = "sql12353968";
+$password = "3jWBjRZTfh";
 
-	/*prepare connection*/
 
-	$connection = mysqli_connect('localhost','root','','elearn');
+// Create connection
+$conn = new mysqli($servername, $username, $password);
 
-	if(mysqli_connect_error()){
-		die('Database Connection Failed ' . mysqli_connect_error());
-	}
-
-?>
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?> 
