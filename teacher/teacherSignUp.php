@@ -1,4 +1,6 @@
-<?php require_once('inc/connection.php'); ?>
+<?php require_once('../inc/connection.php'); ?>
+<?php include('../inc/header.php')?>
+<?php include ('../inc/nav.php')?>
 
 <?php
 
@@ -112,7 +114,7 @@
 
 ?>
 
-<?php include('inc/admin_header.php') ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -181,5 +183,5 @@
 
      
       
-  <?php include('inc/admin_footer.php')?>
+<?php include('../inc/footer.php')?>
 
