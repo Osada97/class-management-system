@@ -149,7 +149,7 @@
           ?>
 
           <!-- teacher add form -->
-          <form action="teacherSignUp.php" method="POST">
+      <!--    <form action="teacherSignUp.php" method="POST">
 
               <p>
                 <label for="fname">First Name:</label>
@@ -180,10 +180,93 @@
 
           </form>
 
-      </div>
+      </div> -->
+
+<div class="container">
+      <form class="needs-validation" novalidate action="teacherSignUp.php" method="POST">
+          <div class="form-row">
+              <div class="col-md-4 mb-3">
+                  <label for="validationCustom01">First name</label>
+                  <input type="text" name="firstname" class="form-control" id="validationCustom01" value="<?php echo $first_name; ?>" required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="validationCustom02">Last name</label>
+                  <input type="text" name="lastname" class="form-control" id="validationCustom02" value="<?php echo $last_name; ?>" required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="validationCustom02">Email</label>
+                  <input type="email" name="email" class="form-control" id="validationCustom02" value="<?php echo $email; ?>" required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="col-md-4 mb-3">
+                  <label for="validationCustom03">Phone No</label>
+                  <input type="text" class="form-control" id="validationCustom03" value ="<?php echo $phone_number; ?>" required>
+                  <div class="invalid-feedback">
+                      Please provide a valid Phone No
+                  </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                  <label for="validationCustom03">Password</label>
+                  <input type="password" name="password" class="form-control"  id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                      Password filed is required!
+                  </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="validationCustom03">confirm password</label>
+                  <input type="password" name="cpassword" class="form-control" id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                      Please Check Your Password
+                  </div>
+              </div>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+      </form>
+</div>
+      <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+          (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                  var forms = document.getElementsByClassName('needs-validation');
+                  // Loop over them and prevent submission
+                  var validation = Array.prototype.filter.call(forms, function(form) {
+                      form.addEventListener('submit', function(event) {
+                          if (form.checkValidity() === false) {
+                              event.preventDefault();
+                              event.stopPropagation();
+                          }
+                          form.classList.add('was-validated');
+                      }, false);
+                  });
+              }, false);
+          })();
+      </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
      
       
