@@ -1,12 +1,12 @@
-<?php include('../inc/admin_header.php') ?>
+<?php include_once('../inc/admin_header.php') ?>
       <div class="container-fluid">
         <h1 class="mt-4">Teacher Management</h1>
         
       </div>
 
-<?php include "../inc/adnav.php"; ?>
+<?php include_once "../inc/adnav.php"; ?>
       
-  <?php include('../inc/admin_footer.php')?>
+<?php include_once('../inc/admin_footer.php')?>
 
 
 
