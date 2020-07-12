@@ -44,6 +44,9 @@
 			if($result){
 				//executing student
 				if(mysqli_num_rows($result)==1){
+					$student = mysqli_fetch_assoc($result);
+
+					$_SESSION['student_name'] = $student['user_name'];
 					header("Location:student_dashboard.php");
 				}
 				else{
@@ -53,11 +56,32 @@
 
 					if($result){
 						if(mysqli_num_rows($result)==1){
+							$teacher = mysqli_fetch_assoc($result);
+
+							$_SESSION['teacher_name'] = $teacher['first_name'] . " " . $teacher['last_name'];
 							//header("Location:teacher_dashboard.php");
-							echo "WELCOME TEACHER";
+							
 						}
 						else{
 							echo "admin";
+							$query = "SELECT * FROM admin WHERE email = '{$email}' AND password = '{$enc_password}' LIMIT 1";
+							$result = mysqli_query($connection,$query);
+
+							if($result){
+								if(mysqli_num_rows($result)==1){
+
+									$admin = mysqli_fetch_assoc($result);
+
+									$_SESSION['admin_name'] = $admin['admin_name'];
+									header('Location:admin/admin_dashboard.php');
+								}
+								else{
+									$error[] = "Email Is Invalid";
+								}
+							}
+							else{
+								print_r(mysqli_error($connection));
+							}
 						}
 					}
 					else{
