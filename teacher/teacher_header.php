@@ -53,8 +53,8 @@
       <div class="sidebar-heading">Teacher's Area</div>
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Manage Students</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Manage Courses</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Manage Students</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
