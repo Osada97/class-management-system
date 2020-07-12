@@ -3,6 +3,8 @@
         <h1 class="mt-4">Teacher Management</h1>
         
       </div>
+
+<?php include "../inc/adnav.php"; ?>
       
   <?php include('../inc/admin_footer.php')?>
 
