@@ -84,5 +84,5 @@
 </form>
 </div>
 
-<?php include_once '../inc/footer.php';?>
-<?php include_once '../inc/admin_footer.php'; ?>
+
+<?php include_once 'teacher_footer.php'; ?>
