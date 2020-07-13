@@ -1,5 +1,5 @@
 <?php
-$$servername = "lankaelearn.com";
+$servername = "lankaelearn.com";
 $username = "lankaelearn_root";
 $password = "Y{zuX4_w#-}D";
 $dbname = "lankaelearn_elearn";
