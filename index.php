@@ -2,7 +2,7 @@
 <?php include ('inc/nav.php')?>
 
 <div class="container">
-    <h1 class="text-center">Latest Courses</h1>
+    <h1 class="text-center">Browse Courses</h1>
     <div class="card-deck">
   <div class="card">
     <img src="..." class="card-img-top" alt="...">
