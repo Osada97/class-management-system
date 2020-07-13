@@ -1,7 +1,7 @@
 <?php
-$servername = "sql12.freemysqlhosting.net";
-$username = "sql12353968";
-$password = "3jWBjRZTfh";
+$servername = "localhost";
+$username = "lankaelearn_root";
+$password = "Y{zuX4_w#-}D";
 
 
 // Create connection
