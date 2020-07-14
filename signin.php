@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <?php include('inc/header.php')?>
 <?php include ('inc/nav.php')?>
 <?php require_once("inc/connection.php"); ?>
@@ -76,7 +77,7 @@
 									header('Location:admin/admin_dashboard.php');
 								}
 								else{
-									$error[] = "Email Is Invalid";
+									$errors[] = "Email Is Invalid";
 								}
 							}
 							else{

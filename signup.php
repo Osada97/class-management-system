@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php include('inc/header.php')?>
 <?php include ('inc/nav.php')?>
 <?php include ('inc/connection.php')?>
@@ -67,8 +68,11 @@
         $email_check_query = "SELECT email FROM student WHERE email = '{$email}' LIMIT 1";
         $result_email_ceck = mysqli_query($connection, $email_check_query);
 
-        if($result_email_ceck){
-            $errors[] = "This Email Is All Ready Entered";
+       if($result_email_ceck){
+            if(mysqli_num_rows($result_email_ceck)==1){
+                 $errors[] = "This Email Is All Ready Entered";
+            }
+           
         }
         else{
             print_r(mysqli_error($connection));
