@@ -1,4 +1,5 @@
 <?php  require_once ('../inc/connection.php');?>
+<?php ob_start; ?>
 <?php session_start(); ?>
 
 <?php  
