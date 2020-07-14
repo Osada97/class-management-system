@@ -104,7 +104,7 @@
             $class_type = implode('/', $_POST['class_type']);
 
            //insert data into database
-            $query = "INSERT INTO course(teacher_id,course_name,is_enrolled,enroll_key,course_img,img_name,description,course_type,class_type,date) VALUES({$teacher_id},'{$course_name}',{$is_enrolled},'{$enroll_key}','{$course_image},'{$file_name}','{$description}','{$course_type}','{$class_type}',current_date())";
+            $query = "INSERT INTO course(teacher_id,course_name,is_enrolled,enroll_key,course_img,img_name,description,course_type,class_type,date) VALUES({$teacher_id},'{$course_name}',{$is_enrolled},'{$enroll_key}',{$course_image},'{$file_name}','{$description}','{$course_type}','{$class_type}',current_date())";
             $result = mysqli_query($connection,$query);
 
             if($result){
