@@ -128,7 +128,7 @@
 
 		?>
 
-		<form action="signin.php" method="POST" autocomplete="false">
+		<form action="index.php" method="POST" autocomplete="false">
 			<p>
 				<label for="email">Email Address:</label>
 				<input type="text" name="email" id="email" autofocus>

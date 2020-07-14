@@ -4,17 +4,24 @@
 
 <div class="container">
     <h3 class="text-center mt-4 mb-4">Add Course</h3>
-<form>
+<form action="" method="POST" enctype="multipart/form-data">
     <div class="form-group row">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Course Name</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="inputEmail3">
         </div>
     </div>
+
     <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Teacher Id</label>
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Enroll Key</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="inputPassword3">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Course Image</label>
+        <div class="col-sm-10">
+            <input type="file" class="form-control" id="inputPassword3">
         </div>
     </div>
     <div class="form-group row">
@@ -39,26 +46,31 @@
                         O/L
                     </label>
                 </div>
-                <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                    <label class="form-check-label" for="gridRadios3">
-                        Third disabled radio
-                    </label>
-                </div>
+
             </div>
         </div>
     </fieldset>
-    <div class="form-group row">
-        <div class="col-sm-2">Checkbox</div>
-        <div class="col-sm-10">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                    Example checkbox
-                </label>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Class Type</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios1" value="option1" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        Theory
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios2" value="option2">
+                    <label class="form-check-label" for="gridRadios2">
+                        Revision
+                    </label>
+                </div>
+
             </div>
         </div>
-    </div>
+    </fieldset>
+
     <div class="form-group row">
         <div class="col-sm-10">
             <button type="submit" class="btn btn-primary">Add Course</button>
@@ -67,5 +79,5 @@
 </form>
 </div>
 
-<?php include_once '../inc/footer.php';?>
-<?php include_once '../inc/admin_footer.php'; ?>
+
+<?php include_once 'teacher_footer.php'; ?>

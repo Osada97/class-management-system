@@ -4,7 +4,7 @@
 
     <div class="container">
         <h3 class="text-center mt-4 mb-40">Add Teacher</h3>
-        <form class="needs-validation" novalidate action="addteacher.php" method="POST">
+        <form class="needs-validation" novalidate action="index.php" method="POST">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">First name</label>
