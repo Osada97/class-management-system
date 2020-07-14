@@ -148,7 +148,7 @@
         }
 
     ?>
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="tcourse.php" method="POST" enctype="multipart/form-data">
     <div class="form-group row">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Course Name</label>
         <div class="col-sm-10">
