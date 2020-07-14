@@ -109,7 +109,7 @@
             $result = mysqli_query($connection,$query);
 
             if($result){
-                echo "OK";
+                echo "<div class=\"alert alert-success text-center \" role=\"alert\"> Course added successfully</div>";
                 $course_name="";
                 $enroll_key="";
                 $description="";
@@ -138,7 +138,11 @@
 
         //display errors
         if(!empty($errors)){
-            echo "<div class='errors'>";
+            echo "
+<div class=\"alert alert-danger alert-dismissible fade show text-center col-md-4 \" role=\"alert\">
+                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>";
                 foreach ($errors as $value) {
                     echo "<p>";
                         echo $value;
