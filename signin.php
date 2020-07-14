@@ -48,6 +48,7 @@
 					$student = mysqli_fetch_assoc($result);
 
 					$_SESSION['student_name'] = $student['user_name'];
+					$_SESSION['studemt_id'] = $student['st_id'];
 					header("Location:student_dashboard.php");
 				}
 				else{
@@ -60,6 +61,7 @@
 							$teacher = mysqli_fetch_assoc($result);
 
 							$_SESSION['teacher_name'] = $teacher['first_name'] . " " . $teacher['last_name'];
+							$_SESSION['teacher_id'] = $teacher['teacher_id'];
 							//header("Location:teacher_dashboard.php");
 							
 						}
@@ -74,6 +76,7 @@
 									$admin = mysqli_fetch_assoc($result);
 
 									$_SESSION['admin_name'] = $admin['admin_name'];
+									$_SESSION['admin_id'] = $admin['admin_id'];
 									header('Location:admin/admin_dashboard.php');
 								}
 								else{
