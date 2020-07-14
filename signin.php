@@ -1,4 +1,6 @@
 <?php ob_start() ?>
+<?php session_start(); ?>
+
 <?php include('inc/header.php')?>
 <?php include ('inc/nav.php')?>
 <?php require_once("inc/connection.php"); ?>
@@ -48,11 +50,10 @@
 					$student = mysqli_fetch_assoc($result);
 
 					$_SESSION['student_name'] = $student['user_name'];
-					$_SESSION['studemt_id'] = $student['st_id'];
+					$_SESSION['student_id'] = $student['st_id'];
 					header("Location:student_dashboard.php");
 				}
 				else{
-					echo "teacher or admin";
 					$query = "SELECT * FROM teacher WHERE email = '{$email}' AND password = '{$enc_password}' AND freez = 0 LIMIT 1";
 					$result = mysqli_query($connection,$query);
 
@@ -62,11 +63,12 @@
 
 							$_SESSION['teacher_name'] = $teacher['first_name'] . " " . $teacher['last_name'];
 							$_SESSION['teacher_id'] = $teacher['teacher_id'];
-							//header("Location:teacher_dashboard.php");
+
+							header("Location:teacher/teacher_dashboard.php");
 							
 						}
 						else{
-							echo "admin";
+							
 							$query = "SELECT * FROM admin WHERE email = '{$email}' AND password = '{$enc_password}' LIMIT 1";
 							$result = mysqli_query($connection,$query);
 
@@ -77,10 +79,11 @@
 
 									$_SESSION['admin_name'] = $admin['admin_name'];
 									$_SESSION['admin_id'] = $admin['admin_id'];
+
 									header('Location:admin/admin_dashboard.php');
 								}
 								else{
-									$errors[] = "Email Is Invalid";
+									$errors[] = "Email Or Password Is Invalid";
 								}
 							}
 							else{
@@ -131,7 +134,7 @@
 
 		?>
 
-		<form action="index.php" method="POST" autocomplete="false">
+		<form action="signin.php" method="POST" autocomplete="false">
 			<p>
 				<label for="email">Email Address:</label>
 				<input type="text" name="email" id="email" autofocus>

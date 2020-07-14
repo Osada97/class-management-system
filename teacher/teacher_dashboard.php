@@ -1,3 +1,13 @@
+<?php session_start(); ?>
+<?php  
+
+    //checking sessions
+    if(!isset($_SESSION['teacher_id'])){
+        header('Location:../signin.php?err=true');
+    }
+
+?>
+
 <?php include('./teacher_header.php') ?>
 <div class="container-fluid">
     <h1 class="mt-4">Dashboard</h1>
