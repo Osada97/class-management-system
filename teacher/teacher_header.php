@@ -56,7 +56,7 @@
         <a href="tcourse.php" class="list-group-item list-group-item-action bg-light">Manage Courses</a>
         <a href="tstudent.php" class="list-group-item list-group-item-action bg-light">Manage Students</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="profile.php" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
       </div>
     </div>
