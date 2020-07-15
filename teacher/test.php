@@ -32,7 +32,11 @@ $courses = mysqli_fetch_all($result,MYSQLI_ASSOC);
     <div class="card-body">
       <h5 class="card-title"><?php echo $course['course_name']; ?></h5>
       <p class="card-text"><?php echo $course['description']; ?></p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p><ul>
+            <li>course type:<?php echo $course['course_type'];  ?>   </li>
+            <li>class type:<?php echo $course['class_type'];  ?>   </li>
+        </ul></p>
+      <p class="card-text"><small class="text-muted"><?php echo $course['date'];?></small></p>
     </div>
   </div>
     </div>
