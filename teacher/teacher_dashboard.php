@@ -18,7 +18,7 @@
     //getting courses
     $teacher_id = $_SESSION['teacher_id'];
     
-    $query_get_cs = "SELECT * FROM course WHERE teacher_id = {$teacher_id} ";
+    $query_get_cs = "SELECT * FROM course WHERE teacher_id = {$teacher_id} ORDER BY course_id DESC";
     $result_get = mysqli_query($connection,$query_get_cs);
 
     if($result_get){
@@ -43,8 +43,18 @@
 
                 $setcos .= "<a href='#'>";
                 $setcos .= "<div class='card-body'>";
-                $setcos .= "<h5 class='card-title'>Python</h5>";
-                $setcos .= "<p class='card-text'>" .$result_cos['description'] . "</p>";
+                $setcos .= "<h5 class='card-title'>" . $result_cos['course_name'] ."</h5>";
+                $setcos .= "<h6 class='card-title'>" . $result_cos['course_type'] ."</h6>";
+                $setcos .= "<h6 class='card-title'>" . $result_cos['class_type'] ."</h6>";
+
+                if(strlen($result_cos['description'])>80){
+
+                    $setcos .= "<p class='card-text'>" .substr($result_cos['description'], 0,80) . "..</p>";
+                }
+                else{
+                    $setcos .= "<p class='card-text'>" . $result_cos['description'] . "</p>";
+                }
+
                 $setcos .= "</div>";
                 $setcos .= "</a>";
                 $setcos .= "<div class='card-footer'>";
@@ -71,7 +81,7 @@
     <div class="card-deck">
 
         <?php echo $setcos; ?>
-        
+
     </div>
 </div>
 
