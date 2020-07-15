@@ -1,128 +1,121 @@
 <?php ob_start(); ?>
-<?php  require_once ('../inc/connection.php');?>
+<?php require_once('../inc/connection.php'); ?>
 <?php session_start(); ?>
 
-<?php  
+<?php
 
-    //checking sessions
-    if(!isset($_SESSION['teacher_id'])){
-        header('Location:../signin.php?err=true');
-    }
+//checking sessions
+if (!isset($_SESSION['teacher_id'])) {
+    header('Location:../signin.php?err=true');
+}
 
 ?>
 
-<?php  
-    
-    $errors = array();
+<?php
 
-    $course_name="";
-    $enroll_key="";
-    $description="";
-    $course_image="";
+$errors = array();
 
-    //when user press add button
+$course_name = "";
+$enroll_key = "";
+$description = "";
+$course_image = "";
 
-    if(isset($_POST['add'])){
+//when user press add button
 
-        $course_name=$_POST['course_name'];
-        $enroll_key=$_POST['enroll_key'];
-        $description=$_POST['description'];
+if (isset($_POST['add'])) {
 
-        //form validataion
+    $course_name = $_POST['course_name'];
+    $enroll_key = $_POST['enroll_key'];
+    $description = $_POST['description'];
 
-        if(empty(trim($_POST['course_name']))){
-            $errors[] = "Course Name Field Is Empty";
-        }
-        if(strlen($_POST['course_name'])>100){
-            $errors[] = "Courese Name Must Be Less Than 100 Characters";
-        }
+    //form validataion
 
-        //uploading picture
+    if (empty(trim($_POST['course_name']))) {
+        $errors[] = "Course Name Field Is Empty";
+    }
+    if (strlen($_POST['course_name']) > 100) {
+        $errors[] = "Courese Name Must Be Less Than 100 Characters";
+    }
 
-        if($_FILES['course_image']['name'] != ""){
-            if($_FILES['course_image']['error'] ==0){
+    //uploading picture
 
-                if($_FILES['course_image']['size']/1024<500){
+    if ($_FILES['course_image']['name'] != "") {
+        if ($_FILES['course_image']['error'] == 0) {
 
-                    if($_FILES['course_image']['type']=='image/jpeg'){
+            if ($_FILES['course_image']['size'] / 1024 < 500) {
 
-                          $file_name = $_FILES['course_image']['name'];
-                          $file_type = $_FILES['course_image']['type'];
-                          $temp_name = $_FILES['course_image']['tmp_name'];
+                if ($_FILES['course_image']['type'] == 'image/jpeg') {
 
-                          $upload_to = "../img/course_covers/";
+                    $file_name = $_FILES['course_image']['name'];
+                    $file_type = $_FILES['course_image']['type'];
+                    $temp_name = $_FILES['course_image']['tmp_name'];
 
-                        if(empty($errors)){
+                    $upload_to = "../img/course_covers/";
 
-                            $isimg = move_uploaded_file($temp_name,$upload_to . $file_name);
+                    if (empty($errors)) {
 
-                            if($isimg){
-                                $course_image = 1;
-                            }
-                            else{
-                                 $course_image = 0;
-                            }
+                        $isimg = move_uploaded_file($temp_name, $upload_to . $file_name);
 
+                        if ($isimg) {
+                            $course_image = 1;
+                        } else {
+                            $course_image = 0;
                         }
 
                     }
-                     else{
-                        $errors[] = "File Type Must Be jpg";
-                     }
+
+                } else {
+                    $errors[] = "File Type Must Be jpg";
+                }
 
 
-                 }
-                 else{
-                    $errors[]= "Image Must Be Less Than 500kb";
-                 }
+            } else {
+                $errors[] = "Image Must Be Less Than 500kb";
             }
-            else{
-                $errors[]="This Image Can Not Upload";
-            }
-
-        }
-        else{
-            $course_image = 0;
-            $file_name = "";
+        } else {
+            $errors[] = "This Image Can Not Upload";
         }
 
-
-        if(empty($errors)){
-
-            //getting fields values
-            $course_name = mysqli_real_escape_string($connection,$_POST['course_name']);
-
-            if(!empty($_POST['enroll_key'])){
-                $enroll_key = mysqli_real_escape_string($connection,$_POST['enroll_key']);
-                $is_enrolled = 1;
-            }
-            else{
-                $is_enrolled = 0;
-            }
-            $teacher_id = $_SESSION['teacher_id'];
-            $description = mysqli_real_escape_string($connection,$_POST['description']);
-            $course_type =$_POST['course_type'];
-            $class_type = implode('/', $_POST['class_type']);
-
-           //insert data into database
-            $query = "INSERT INTO course(teacher_id,course_name,is_enrolled,enroll_key,course_img,img_name,description,course_type,class_type,date) VALUES({$teacher_id},'{$course_name}',{$is_enrolled},'{$enroll_key}',{$course_image},'{$file_name}','{$description}','{$course_type}','{$class_type}',NOW())";
-            $result = mysqli_query($connection,$query);
-
-            if($result){
-                echo "<div class=\"alert alert-success text-center \" role=\"alert\"> Course added successfully</div>";
-                $course_name="";
-                $enroll_key="";
-                $description="";
-                $course_image="";
-            }   
-            else{
-                print_r(mysqLI_error($connection));
-            }
-        }
-
-
+    } else {
+        $course_image = 0;
+        $file_name = "";
     }
-    
+
+
+    if (empty($errors)) {
+
+        //getting fields values
+        $course_name = mysqli_real_escape_string($connection, $_POST['course_name']);
+
+        if (!empty($_POST['enroll_key'])) {
+            $enroll_key = mysqli_real_escape_string($connection, $_POST['enroll_key']);
+            $is_enrolled = 1;
+        } else {
+            $is_enrolled = 0;
+        }
+        $teacher_id = $_SESSION['teacher_id'];
+        $description = mysqli_real_escape_string($connection, $_POST['description']);
+        $course_type = $_POST['course_type'];
+        $class_type = implode('/', $_POST['class_type']);
+
+        //insert data into database
+        $query = "INSERT INTO course(teacher_id,course_name,is_enrolled,enroll_key,course_img,img_name,description,course_type,class_type,date) VALUES({$teacher_id},'{$course_name}',{$is_enrolled},'{$enroll_key}',{$course_image},'{$file_name}','{$description}','{$course_type}','{$class_type}',NOW())";
+        $result = mysqli_query($connection, $query);
+
+        if ($result) {
+            echo "<div class=\"alert alert-success text-center \" role=\"alert\"> Course added successfully</div>";
+            $course_name = "";
+            $enroll_key = "";
+            $description = "";
+            $course_image = "";
+        } else {
+            print_r(mysqLI_error($connection));
+        }
+    }
+
+
+}
+
 
 ?>
 
@@ -134,97 +127,102 @@
 <div class="container">
     <h3 class="text-center mt-4 mb-4">Add Course</h3>
 
-    <?php  
+    <?php
 
-        //display errors
-        if(!empty($errors)){
-            echo "
-<div class=\"alert alert-danger alert-dismissible fade show text-center col-md-4 \" role=\"alert\">
+    //display errors
+    if (!empty($errors)) {
+        echo "<div>";
+        foreach ($errors as $value) {
+            echo "<p>";
+            echo " <div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">{$value}
                     <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-    <span aria-hidden=\"true\">&times;</span>
-  </button>";
-                foreach ($errors as $value) {
-                    echo "<p>";
-                        echo $value;
-                    echo "<p>";
-                }
-            echo "</div>";
+                    <span aria-hidden=\"true\">&times;</span> </button>
+                   </div> ";
+            echo "<p>";
         }
+        echo "</div>";
+    }
 
     ?>
-<form action="tcourse.php" method="POST" enctype="multipart/form-data">
-    <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Course Name</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputEmail3" name="course_name" value="<?php echo($course_name) ?>">
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Enroll Key</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword3" name="enroll_key" value="<?php echo($enroll_key) ?>">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Course Image</label>
-        <div class="col-sm-10">
-            <input type="file" class="form-control" id="inputPassword3" name="course_image">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
-        <div class="col-sm-10">
-            <textarea type="text" class="form-control" id="inputPassword3" name="description"><?php echo $description; ?></textarea>
-        </div>
-    </div>
-    <fieldset class="form-group">
-        <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0">Course Type</legend>
+    <form action="tcourse.php" method="POST" enctype="multipart/form-data">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Course Name</label>
             <div class="col-sm-10">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" id="gridRadios1" value="a/l" name="course_type" checked>
-                    <label class="form-check-label" for="gridRadios1">
-                        A/L
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio"  id="gridRadios2" value="o/l" name="course_type">
-                    <label class="form-check-label" for="gridRadios2">
-                        O/L
-                    </label>
-                </div>
-
+                <input type="text" class="form-control" id="inputEmail3" name="course_name"
+                       value="<?php echo($course_name) ?>">
             </div>
         </div>
-    </fieldset>
-    <fieldset class="form-group">
-        <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0">Class Type</legend>
-            <div class="col-sm-10">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridRadios1" value="theory" name="class_type[]" checked>
-                    <label class="form-check-label" for="gridRadios1">
-                        Theory
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox"  id="gridRadios2" value="revision" name="class_type[]">
-                    <label class="form-check-label" for="gridRadios2">
-                        Revision
-                    </label>
-                </div>
 
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Enroll Key</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword3" name="enroll_key"
+                       value="<?php echo($enroll_key) ?>">
             </div>
         </div>
-    </fieldset>
-
-    <div class="form-group row">
-        <div class="col-sm-10">
-            <button type="submit" name="add" class="btn btn-primary">Add Course</button>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Course Image</label>
+            <div class="col-sm-10">
+                <input type="file" class="form-control" id="inputPassword3" name="course_image">
+            </div>
         </div>
-    </div>
-</form>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <textarea type="text" class="form-control" id="inputPassword3"
+                          name="description"><?php echo $description; ?></textarea>
+            </div>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Course Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="gridRadios1" value="a/l" name="course_type"
+                               checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            A/L
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="gridRadios2" value="o/l" name="course_type">
+                        <label class="form-check-label" for="gridRadios2">
+                            O/L
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Class Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridRadios1" value="theory"
+                               name="class_type[]" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            Theory
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridRadios2" value="revision"
+                               name="class_type[]">
+                        <label class="form-check-label" for="gridRadios2">
+                            Revision
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" name="add" class="btn btn-primary">Add Course</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 
