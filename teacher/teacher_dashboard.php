@@ -76,7 +76,7 @@
         }
         else{
             $setcos="";
-            header('refresh:3;url=tprofile.php');
+            header('refresh:3;url=profile.php');
         }
     }
     else{
