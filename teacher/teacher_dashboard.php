@@ -25,7 +25,7 @@
         if(mysqli_num_rows($result_get)>0){
             $setcos = "";
             while($result_cos = mysqli_fetch_assoc($result_get)){
-                $setcos .= "<div class='card'>";
+                $setcos .= "<div class=\"card\" style=\"min-width: 15rem; cursor:pointer; margin-bottom:10px; \">";
 
                 //checking course have an image
                 if($result_cos["course_img"] != 0){
@@ -41,11 +41,9 @@
                     $setcos .= "<img src='../img/csd.jpg' class='card-img-top' style= 'height:250px;'> ";
                 }
 
-                $setcos .= "<a href='#'>";
-                $setcos .= "<div class='card-body'>";
-                $setcos .= "<h5 class='card-title'>" . $result_cos['course_name'] ."</h5>";
-                $setcos .= "<h6 class='card-title'>" . $result_cos['course_type'] ."</h6>";
-                $setcos .= "<h6 class='card-title'>" . $result_cos['class_type'] ."</h6>";
+                $setcos .= "<a href='#' style='text-decoration:none;color:#000'>";
+                $setcos .= "<div class='card-body' style='height:230px'>";
+                $setcos .= "<h5 class='card-title' >" . $result_cos['course_name'] ."</h5>";
 
                 if(strlen($result_cos['description'])>80){
 
@@ -54,7 +52,10 @@
                 else{
                     $setcos .= "<p class='card-text'>" . $result_cos['description'] . "</p>";
                 }
-
+                $setcos .= "<p><ul>";
+                $setcos .= "<li>Course type: <span style='text-transform:uppercase'> " . $result_cos['course_type'] . "</span></li>";
+                $setcos .= "<li>Class type:  <span style='text-transform:uppercase'>" . $result_cos['class_type'] . "</span></li>";
+                $setcos .= "</ul></p>";
                 $setcos .= "</div>";
                 $setcos .= "</a>";
                 $setcos .= "<div class='card-footer'>";
