@@ -77,7 +77,19 @@
 
           if($email_result){
             if(mysqli_num_rows($email_result)!=0){
+              print_r(mysqli_num_rows($email_result));
               $errors[] = "Email Is Already Exists";
+            }
+            else{
+              //checking admin table
+              $checkADquery = "SELECT * FROM admin WHERE email = '{$email}' LIMIT 1";
+              $email_result = mysqli_query($connection,$checkADquery);
+
+              if($email_result){
+                if(mysqli_num_rows($email_result) != 0){
+                  $errors[] = "Email Is Already Exists";
+                }
+              }
             }
           }
 
@@ -148,39 +160,6 @@
             
           ?>
 
-          <!-- teacher add form -->
-      <!--    <form action="teacherSignUp.php" method="POST">
-
-              <p>
-                <label for="fname">First Name:</label>
-                <input type="text" name="firstname" id="fname" value ="<?php echo $first_name; ?>">
-              </p>
-              <p>
-                <label for="lname">Last Name:</label>
-                <input type="text" name="lastname" ilnamed="" value="<?php echo $last_name; ?>">
-              </p>
-              <p>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" value="<?php echo $email; ?>">
-              </p>
-              <p>
-                <label for="phonenumber">Phone Number:</label>
-                <input type="text" name="phonenumber" id="phonenumber" value ="<?php echo $phone_number; ?>">
-              </p>
-              <p>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
-              </p>
-              <p>
-                <label for="cpassword">Confirm Password:</label>
-                <input type="password" name="cpassword" id="cpassword">
-              </p>
-
-              <input type="submit" value="Add Teacher" name="submit">
-
-          </form>
-
-      </div> -->
 
 <div class="container">
       <form class="needs-validation" novalidate action="teacherSignUp.php" method="POST">
@@ -210,7 +189,7 @@
           <div class="form-row">
               <div class="col-md-4 mb-3">
                   <label for="validationCustom03">Phone No</label>
-                  <input type="text" class="form-control" id="validationCustom03" value ="<?php echo $phone_number; ?>" required>
+                  <input type="text" class="form-control" id="validationCustom03" name="phonenumber" value ="<?php echo $phone_number; ?>" required>
                   <div class="invalid-feedback">
                       Please provide a valid Phone No
                   </div>
@@ -232,7 +211,7 @@
               </div>
           </div>
 
-          <button class="btn btn-primary" type="submit">Sign Up</button>
+          <button class="btn btn-primary" type="submit" name="submit">Sign Up</button>
       </form>
 </div>
       <script>
