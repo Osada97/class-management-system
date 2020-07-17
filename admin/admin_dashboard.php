@@ -1,4 +1,18 @@
 <?php include('../inc/admin_header.php') ?>
+<?php require_once '../inc/connection.php'?>
+<?php
+
+$teacher = "select teacher_id from teacher";
+$t_result = mysqli_query($connection,$teacher);
+$t_count = mysqli_num_rows($t_result);
+$student = "select st_id from student";
+$s_result = mysqli_query($connection,$student);
+$s_count = mysqli_num_rows($s_result);
+$course = "select course_id from course";
+$c_result = mysqli_query($connection,$course);
+$c_count = mysqli_num_rows($c_result);
+?>
+
 
       <div class="container-fluid">
         <h1 class="mt-4">Dashboard</h1>
@@ -9,21 +23,21 @@
                         <div class="card-header">Courses</div>
                         <div class="card-body">
                             <h5 class="card-title">Total Courses</h5>
-                            <p class="card-text"><h3>50</h3></p>
+                            <p class="card-text"><h3><?php echo $c_count; ?></h3></p>
                         </div>
                     </div>
                     <div class="card text-white bg-success mb-3 " style="max-width: 18rem;">
                         <div class="card-header">Teachers</div>
                         <div class="card-body">
                             <h5 class="card-title">Total Teachers</h5>
-                            <p class="card-text"><h3>100</h3></p>
+                            <p class="card-text"><h3><?php echo $t_count; ?></h3></p>
                         </div>
                     </div>
                     <div class="card text-white bg-danger mb-3 " style="max-width: 18rem;">
                         <div class="card-header">Students</div>
                         <div class="card-body">
                             <h5 class="card-title">Total Students</h5>
-                            <p class="card-text"><h3>400</h3></p>
+                            <p class="card-text"><h3><?php echo $s_count; ?></h3></p>
                         </div>
                     </div>
                 </div>

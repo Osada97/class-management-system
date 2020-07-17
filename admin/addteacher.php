@@ -1,6 +1,6 @@
 <?php require_once('../inc/connection.php'); ?>
-<?php include('../inc/header.php')?>
-<?php include ('../inc/nav.php')?>
+<?php include ('../inc/admin_header.php')?>
+<?php include ('../inc/adnav.php')?>
 
 <?php
 
@@ -235,19 +235,9 @@ if(isset($_POST['submit'])){
         })();
     </script>
 
+    <?php include_once ("../inc/admin_footer.php");?>
 </body>
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-<?php include('../inc/footer.php')?>
 
