@@ -1,6 +1,5 @@
 <?php include('../inc/header.php')?>
 <?php require_once('../inc/connection.php') ?>
-<?php session_start() ?>
 
 <style>
 #wrapper {
