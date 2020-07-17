@@ -25,7 +25,7 @@
         if(mysqli_num_rows($result_get)>0){
             $setcos = "";
             while($result_cos = mysqli_fetch_assoc($result_get)){
-                $setcos .= "<div class=\"card\" style=\"min-width: 16rem; cursor:pointer; margin-bottom:10px; position:relative; \">";
+                $setcos .= "<div class=\"card\" style=\"min-width: 16rem; max-width:22rem; cursor:pointer; margin-bottom:10px; position:relative; \">";
 
                 $setcos .= "<div class='dropdownop'>";
                 $setcos .= "<button class='drop-btn'><i class='fas fa-ellipsis-v'></i></button>";
