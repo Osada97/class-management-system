@@ -31,7 +31,7 @@
                 $setcos .= "<button class='drop-btn'><i class='fas fa-ellipsis-v'></i></button>";
                 $setcos .= "<div class='dropdown_content'>";
                 $setcos .= "<a href='#'>Open</a>";
-                $setcos .= "<a href='teacher_corse_edit.php?course_id={$result_cos['course_id']}'>Edit</a>";
+                $setcos .= "<a href='teacher_course_edit.php?course_id={$result_cos['course_id']}'>Edit</a>";
                 $setcos .= "<a href='teacher_course_delete.php?course_id={$result_cos['course_id']}' onclick=\"return confirm('Are You Sure?🙄')\">Delete</a>";
                 $setcos .= "</div>";
                 $setcos .= "</div>";
