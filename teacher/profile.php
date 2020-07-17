@@ -275,7 +275,7 @@
 
                 foreach ($pskills as $value) {
                     if($i < sizeof($skill_color)){
-                        echo "<span class=\"{$skill_color[$i]}\">" . $value . "</span>";
+                        echo "<span class=\" {$skill_color[$i]}\">" . $value . "</span>";
                         $i++;
                     }
                     else{
