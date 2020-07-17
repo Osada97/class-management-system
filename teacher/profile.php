@@ -185,6 +185,7 @@
 <style>
     .skiils{
         margin-bottom: 10px;
+
     }
     .pr_skills{
         display: flex;
@@ -275,7 +276,7 @@
 
                 foreach ($pskills as $value) {
                     if($i < sizeof($skill_color)){
-                        echo "<span class=\" {$skill_color[$i]}\">" . $value . "</span>";
+                        echo "<span class=\" mr-2 {$skill_color[$i]}\">" . $value . "</span>";
                         $i++;
                     }
                     else{
