@@ -119,36 +119,58 @@
 </head>
 <body>
 
-	<div class="main_container">
-		<h2>Sign In</h2>
+	<div class="container mt-4">
+        <h2 class="text-center">Sign In</h2>
+
+
 
 		<!-- display errors -->
-		<?php 
-			echo "<div class ='errors'>";
+		<?php
+
+
+
 				if(!empty($errors)){
 					foreach ($errors as $value) {
-						echo "<p>" . $value . "</p>";
+					    echo "<div class=\"row text-center\">";
+					    echo "<div class=\"col-md-4\"></div>";
+                        echo "<div class=\"col-md-4\">";
+						echo "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">$value
+                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                        <span aria-hidden=\"true\">&times;</span>
+                         </button>
+                            </div>";
+						echo "</div>";
+                        echo "<div class=\"col-md-4\"></div>";
+						echo "</div>";
 					}
 				}
-			echo "</div>";
+
+
 
 		?>
-
+        <div class="row justify-content-center">
 		<form action="signin.php" method="POST" autocomplete="false">
-			<p>
+			<div class="form-group">
 				<label for="email">Email Address:</label>
-				<input type="text" name="email" id="email" autofocus>
-			</p>
-			<p>
+				<input type="text" name="email" id="email" class="form-control" autofocus>
+            </div>
+
+            <div class="form-group">
 				<label for="password">Password:</label>
-				<input type="password" name="password" id="password">
-			</p>
-				<input type="submit" value="Sign In" name="submit">
+				<input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="text-center">
+				<input type="submit" value="Sign In" name="submit" class="btn btn-primary ">
+            </div>
 		</form>
+        </div>
+
 	</div>
 	
 </body>
 <?php mysqli_close($connection); ?>
 </html>
 
+<div style="margin-top: 110px">
 <?php include('inc/footer.php')?>
+</div>
