@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
-<?php include('inc/header.php')?>
-<?php include ('inc/nav.php')?>
-<?php include ('inc/connection.php')?>
+<?php include('inc/header.php') ?>
+<?php include('inc/nav.php') ?>
+<?php include('inc/connection.php') ?>
 
 
 <?php  
@@ -229,4 +229,4 @@
 </body>
 <?php mysqli_close($connection); ?>
 </html>
-<?php include('inc/footer.php')?>
+<?php include('inc/footer.php') ?>
