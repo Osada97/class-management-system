@@ -321,7 +321,7 @@
         <div class="col-md-3">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header">Students
-                  <button class="btn" style="margin-left: 2.9rem;" data-toggle="modal" data-target="#add"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  <button class="btn" style="margin-left: 2.9rem;" data-toggle="modal" data-target="#addst"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
                 <div class="card-body">
                     <div class="scroll">
@@ -332,7 +332,7 @@
             </div>
 
         </div>
-            <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="addst" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
