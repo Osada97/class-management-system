@@ -314,12 +314,15 @@
                 <p class="lead">Upload your Course Material in here</p>
                 <hr class="my-4">
                 <p>Compatible with PDF and other Video formats</p>
+                <a href="teacher_dashboard.php"><button class="btn btn-info">Return to Dashboard</button></a>
                 
             </div>
         <div class="row">
         <div class="col-md-3">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Students</div>
+                <div class="card-header">Students
+                  <button class="btn" style="margin-left: 2.9rem;" data-toggle="modal" data-target="#add"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div>
                 <div class="card-body">
                     <div class="scroll">
                         sfkcjgasbukcjbvaskuvjboikvjbsdkvjbsilvkjbwsdkjbvkj
@@ -329,6 +332,49 @@
             </div>
 
         </div>
+            <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Search for Students</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form class=" my-2 my-lg-0">
+                                <div class="form-inline">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class=" btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Select From the List</label>
+
+                                    <ul class="list-group">
+                                        <div class="overflow-auto">
+                                        <li class="list-group-item">Cras justo odio <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                                        <li class="list-group-item">Morbi leo risus</li>
+                                        <li class="list-group-item">Porta ac consectetur ac</li>
+                                        <li class="list-group-item">Vestibulum at eros</li>
+                                        <li class="list-group-item">Vestibulum at eros</li>
+                                        <li class="list-group-item">Vestibulum at eros</li>
+                                        <li class="list-group-item">Vestibulum at eros</li>
+                                        </div>
+                                    </ul>
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-9">
                 <!-- <div class="card" style="display: <?php if($display==true){echo "block";}else{echo "none";} ?>;">
                     <div class="card-header">
@@ -355,14 +401,22 @@
                                 echo "</div>";
                             }
                         ?>
-                        <button type="button" id="add">Add Media</button>
+                        <button type="button" id="add" class="btn btn-success mb-4">Add Media <small> (Scroll Down) </small></button>
                         <div class="form-group hide" id="mainme" style="display: none;">
-                            <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+                            <textarea name="msg" id="msg" cols="30" rows="10" class="form-control mb-4"></textarea>
                             <div class="media"></div>
-                            <label class="btn btn-success btn-lg btn-block form-control-file">Add Media
-                            <input  type="file" name="add_media[]" multiple="" hidden>
-                            </label>
-                            <input type="submit" value="Upload Documents" name="submit">
+                            <div class="row">
+                            <div class="col-md-6">
+                           <label class="btn btn-outline-danger form-control-file">Add Content
+                               <input  type="file" name="add_media[]" multiple="" hidden></label>
+                            </div>
+                            <div class="col-md-6">
+                           <label class="btn  btn-outline-secondary form-control-file" >
+                                Upload Document
+                            <input type="submit" value="Upload Documents" name="submit" hidden>
+                           </label>
+                            </div>
+                            </div>
                         </div>
 
                     </div>
@@ -380,6 +434,26 @@
 
 </div>
 
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $('#add').click(function(){
@@ -387,4 +461,4 @@
     });
 </script>
 
-
+<?php include_once ("teacher_footer.php"); ?>
