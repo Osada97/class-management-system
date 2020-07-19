@@ -30,7 +30,7 @@
                 $setcos .= "<div class='dropdownop'>";
                 $setcos .= "<button class='drop-btn'><i class='fas fa-ellipsis-v'></i></button>";
                 $setcos .= "<div class='dropdown_content'>";
-                $setcos .= "<a href='#'>Open</a>";
+                $setcos .= "<a href='addmedia.php?course_id={$result_cos['course_id']}'>Open</a>";
                 $setcos .= "<a href='teacher_course_edit.php?course_id={$result_cos['course_id']}'>Edit</a>";
                 $setcos .= "<a href='teacher_course_delete.php?course_id={$result_cos['course_id']}' onclick=\"return confirm('Are You Sure?🙄')\">Delete</a>";
                 $setcos .= "</div>";
@@ -50,7 +50,7 @@
                     $setcos .= "<img src='../img/csd.jpg' class='card-img-top' style= 'height:250px;'> ";
                 }
 
-                $setcos .= "<a href='#' style='text-decoration:none;color:#000'>";
+                $setcos .= "<a href='addmedia.php?course_id={$result_cos['course_id']}' style='text-decoration:none;color:#000'>";
                 $setcos .= "<div class='card-body' style='height:230px'>";
                 $setcos .= "<h5 class='card-title' >" . $result_cos['course_name'] ."</h5>";
 
