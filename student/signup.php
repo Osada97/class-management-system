@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <?php include('inc/header.php') ?>
 <?php include('inc/nav.php') ?>
-<?php include('inc/connection.php') ?>
+<?php include('../inc/connection.php') ?>
 
 
 <?php  
@@ -174,31 +174,31 @@
             <div class="form-group row">
                 <label for="firstname" class="col-sm-4 col-form-label">First Name</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="firstname" name="firstname">
+                <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo  $firstname ?>">
             </div>
             </div>
             <div class="form-group row">
                 <label for="lastname" class="col-sm-4 col-form-label">Last Name</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="lastname" name="lastname">
+                <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo  $lastname ?>">
             </div>
             </div>
             <div class="form-group row">
                 <label for="username" class="col-sm-4 col-form-label">Username</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="username" name="username">
+                <input type="text" class="form-control" id="username" name="username" value="<?php echo  $username ?>">
             </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-4 col-form-label">Email</label>
             <div class="col-sm-8">
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo  $email ?>">
             </div>
             </div>
             <div class="form-group row">
                 <label for="phonenumber" class="col-sm-4 col-form-label">Phone No</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="phone_no" name="phonenumber">
+                <input type="text" class="form-control" id="phone_no" name="phonenumber" value="<?php echo  $phonenumber ?>">
             </div>
             </div>
             <div class="form-group row">
