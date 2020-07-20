@@ -79,8 +79,6 @@
                     if(in_array($file_type, $file_types)){
                         //upload file goes in here
                         $upload_to = "../course_media/";
-       
-                        echo $chapter_id;
 
                         $new_file_name = $course_id."-".$chapter_id."-".$file_name;
                         
@@ -256,6 +254,45 @@
 
 
 ?>
+<?php  
+
+    //add student
+    if(isset($_POST['add_student_cos'])){
+
+        if(isset($_POST['st_id_add'])){
+
+            $student_id = $_POST['st_id_add'];
+
+            $ststco = 0;
+            for($x=0;$x<count($student_id);$x++){
+
+                //checking student alreay enrolled to the course
+                $is_query = "SELECT * FROM course_enroll WHERE course_id = {$course_id} AND student_id='{$student_id[$x]}' LIMIT 1";
+                $is_result = mysqli_query($connection,$is_query);
+
+                if($is_result){
+                    if(mysqli_num_rows($is_result) == 0){
+                        $insQuery = "INSERT INTO course_enroll(course_id,teacher_id,student_id) VALUES({$course_id},{$teacher_id},'{$student_id[$x]}')";
+                        $resul = mysqli_query($connection,$insQuery);
+
+                        if($resul){
+                            $ststco++;
+                        }
+                        else{
+                            print_r(mysqli_error($connection));
+                        }
+                    }
+                }
+            }
+            if($ststco >0){
+                echo "<script>";
+                    echo "alert('{$ststco} Student Added To Course')";
+                echo "</script>";
+            }
+        }
+    }
+
+?>
 <!-- styles -->
 <style>
     .card{
@@ -303,7 +340,134 @@
     .blockquote p{
         font-size: 17px;
     }
+    .list-group .overflow-auto li{
+        width: 100%;
+        display: flex;
+        white-space: nowrap;
+        padding: 5px;
+        border-bottom: 1px solid #ed2a26;
+        margin-bottom: 3px;
+        font-size: 14px;
+        transition: 0.3s ease;
+    }
+    .list-group .overflow-auto li:hover{
+        background-color: #ffe0e059;
+        color: #f10a0a;
+    }
+    .list-group .overflow-auto li:hover i{
+        color: #f10a0a;
+        animation: 1s rot ease;
+    }
+    @keyframes rot{
+        from{
+            transform: rotateZ(0deg);
+        }
+        to{
+            transform: rotateZ(360deg);
+        }
+    }
+    .list-group .overflow-auto li .st_name ,li .st_add{
+        flex: 1;
+    }
+    .list-group .overflow-auto li .st_pic{
+        width: 30px;
+        overflow: hidden;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+    .list-group .overflow-auto li .st_pic img{
+        width: 100%;
+        height: 100%;
+    }
+    .list-group .overflow-auto li .st_name{
+        flex: 2;
+    }
+    .list-group .overflow-auto li .st_add{
+        text-align: center;
+    }
+    .list-group .overflow-auto li .st_add button{
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+    }
+    .list-group .overflow-auto li .st_add button i{
+        pointer-events: none;
+    }
+    .st_add_us{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+        grid-column-gap: 15px;
+        grid-row-gap: 10px;
+        margin-bottom: 5px;
+    }
+    .st_add_us .grid_st{
+        width: 100%;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .st_add_us .grid_st .grid_st_pic{
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+    .st_add_us .grid_st .grid_st_name{
+        text-align: center;
+    }
+    .st_add_us .grid_st img{
+        width: 100%;
+    }
+    .lis-group{
+        transition: 0.9s;
+    }
+    .lihide{
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    .scroll .st_row{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        margin-bottom: 5px;
+    }
+    .scroll .st_row:hover{
+        color: #f10a0a;
+    }
+    .scroll .st_row .pro_pic{
+        flex: 1;
+    }
+    .scroll .st_row .pro_name{
+        flex: 2;
+    }
+    .scroll .st_row .pro_pic .picpic{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .scroll .st_row .pro_pic img{
+        width: 100%;
+    }
+    .scroll .st_row .pro_name h5{
+        font-size: 14px;
+        white-space: nowrap;
+        line-height: 50px;
+        cursor: default;
+    }
+    .scroll h3{
+        font-size: 15px;
+    }
 </style>
+
+<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script><!-- font awsome script tag -->
 
 <div class="container-fluid mt-4">
     <div class="col-md-2"></div>
@@ -325,7 +489,7 @@
                 </div>
                 <div class="card-body">
                     <div class="scroll">
-                        sfkcjgasbukcjbvaskuvjboikvjbsdkvjbsilvkjbwsdkjbvkj
+                        <!-- dynamic student list goes here -->
                     </div>
 
                 </div>
@@ -341,37 +505,49 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <form class=" my-2 my-lg-0" action="addmedia.php?course_id=<?php echo $course_id; ?>" method="POST">
+                            <div class="modal-body">
 
-                            <form class=" my-2 my-lg-0">
+                                <div class="st_add_us">
+                                    <!-- dynamic student profiles goes ine here -->
+                                    <!-- <div class="grid_st">
+                                        <div class="grid_st_pic">
+                                            <img src="../img/defaultteacher.png">
+                                        </div>
+                                        <div class="grid_st_name">
+                                            <p>osada manohar</p>
+                                            <input type="hidden" value="1">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid_st">
+                                        <div class="grid_st_pic">
+                                            <img src="../img/defaultteacher.png">
+                                        </div>
+                                        <div class="grid_st_name">
+                                            <p>osada manohar</p>
+                                            <input type="hidden" value="1">
+                                        </div>
+                                    </div> -->
+                                </div>
                                 <div class="form-inline">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class=" btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchbar" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Select From the List</label>
 
                                     <ul class="list-group">
-                                        <div class="overflow-auto">
-                                        <li class="list-group-item">Cras justo odio <i class="fa fa-plus" aria-hidden="true"></i>
-                                        </li>
-                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                        <li class="list-group-item">Morbi leo risus</li>
-                                        <li class="list-group-item">Porta ac consectetur ac</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
+                                        <div class="overflow-auto" style="height: 410px;overflow-x: hidden;">
                                         </div>
                                     </ul>
 
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" name="add_student_cos" class="btn btn-primary">Add Students For This Course</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -461,7 +637,82 @@
         $('#mainme').slideToggle(600);
     });
 </script>
+<script>
+    $(document).ready(function(){
+
+        $('#searchbar').on('keyup',function(){
+            var search = $('#searchbar').val();
+            $.post('search_result_addmedia.php', {
+                search: search
+            }, function(data){
+                $('.overflow-auto').html(data);
+            });
+        });
+
+    });
+</script>
+
+<script>
+        const st_add_us = document.querySelector('.st_add_us');
+
+    function add_student(event){
+        let par = event.target.parentElement.parentElement;
+        let st_id = par.children[0].innerText;
+        let st_img = par.children[1].children[0].getAttribute('src');
+        let st_name = par.children[2].innerText;
+
+        //add top
+        newgrid = document.createElement('div');
+        newgrid.classList.add('grid_st');
+
+        grid_st_pic = document.createElement('div');
+        grid_st_pic.classList.add('grid_st_pic');
+        img = document.createElement('img');
+        img.setAttribute('src',st_img);
+
+        grid_st_pic.appendChild(img);
+
+        grid_st_name = document.createElement('div');
+        grid_st_name.classList.add('grid_st_name');
+        p = document.createElement('p');
+        p.innerText = st_name;
+        input = document.createElement('input');
+        input.setAttribute('type','hidden');
+        input.setAttribute('name','st_id_add[]');
+        input.setAttribute('value',st_id);
+
+        grid_st_name.appendChild(p);
+        grid_st_name.appendChild(input);
+
+        newgrid.appendChild(grid_st_pic);
+        newgrid.appendChild(grid_st_name);
 
 
+        st_add_us.appendChild(newgrid);
+
+        par.classList.add('lihide');
+
+        par.addEventListener('transitionend',function(){
+           par.remove();
+        });
+    }
+
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        setInterval(function(){
+            var course_id = <?php echo $course_id; ?>;
+
+            $.post('getallStudent.php',{
+                course_id: course_id
+                },function(data){
+                    $('.scroll').html(data);
+                });
+        },1000);
+
+    });
+</script>
 
 
