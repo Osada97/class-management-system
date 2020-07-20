@@ -1,12 +1,12 @@
-<?php include_once("../inc/connection.php"); ?>
-<?php include_once("../inc/header.php"); ?>
+<?php # require_once ('../inc/connection.php'); ?>
+<?php include_once ('stu_header.php'); ?>
 
 
 <div class="container text-center">
     <div class="jumbotron">
         <h1 class="display-4">Student Name</h1>
 
-        <img src='../img/teacher_pic/' alt='Profile pic' class='rounded-circle' style='width: 200px; height: 200px'>";
+        <img src="../img/defaultteacher.png" alt='Profile pic' class='rounded-circle' style='width: 200px; height: 200px'>
 
 
         <p class="lead">profile id:-</p>
@@ -17,21 +17,15 @@
         <p></p>
         <div class="row justify-content-center">
             <div class="card border-info mb-3" style="max-width: 18rem; margin-right: 20px">
-                <div class="card-header">Courses I have</div>
+                <div class="card-header">Courses I Enrolled</div>
                 <div class="card-body text-info">
                     <h1 class="card-title">5</h1>
 
                 </div>
             </div>
-            <div class="card border-info mb-3" style="max-width: 18rem; margin-right: 20px">
-                <div class="card-header">Students Enrolled</div>
-                <div class="card-body text-info">
-                    <h1 class="card-title">100</h1>
 
-                </div>
-            </div>
             <div class="card border-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">Number of Subjects</div>
+                <div class="card-header">Number of Learning</div>
                 <div class="card-body text-info">
                     <h1 class="card-title">3</h1>
 
@@ -101,4 +95,4 @@
 
 <script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
 
-<?php include_once ("../inc/footer.php"); ?>
+<?php include "stu_footer.php"; ?>
