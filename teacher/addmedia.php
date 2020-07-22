@@ -495,7 +495,7 @@
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header">Students
                   <button class="btn" style="margin-left: 2.9rem;" data-toggle="modal" data-target="#addst"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                </div>hello world app
+                </div>
                 <div class="card-body">
                     <form action="addmedia.php?course_id=<?php echo $course_id; ?>" method=POST>
                         <div class="scroll">
