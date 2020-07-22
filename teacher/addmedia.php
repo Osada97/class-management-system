@@ -486,7 +486,7 @@
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header">Students
                   <button class="btn" style="margin-left: 2.9rem;" data-toggle="modal" data-target="#addst"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                </div>
+                </div>hello world app
                 <div class="card-body">
                     <div class="scroll">
                         <!-- dynamic student list goes here -->
