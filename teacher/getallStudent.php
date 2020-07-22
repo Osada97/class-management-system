@@ -1,5 +1,6 @@
 <?php  
 	require_once('../inc/connection.php');
+	//for Ajax
 
 	$course_id = $_POST['course_id'];
 
@@ -19,11 +20,25 @@
 						echo "<div class='st_row'>";
 							echo "<div class='pro_pic'>";
 								echo "<div class='picpic'>";
-									echo "<img src='../img/defaultteacher.png'>";
+									if($stallde['is_image']!=0){
+										if($stallde['img_name']!=null){
+											echo "<img src='../img/student_pic/{$stallde['img_name']}'>";
+										}
+										else{
+											echo "<img src='../img/defaultstudent.png'>";
+										}
+									}
+									else{
+										echo "<img src='../img/defaultstudent.png'>";
+									}
 								echo "</div>";
 							echo "</div>";
 							echo "<div class='pro_name'>";
-								echo "<h5>" . $stallde['first_name'] . " " .$stallde['last_name'];
+								echo "<h5>" . $stallde['first_name'] . " " .$stallde['last_name']."</h5>";
+							echo "</div>";
+							echo "<div class='pro_del'>";
+							$st_id = $stallde['st_id'];
+								echo "<button type='button' name='dlstbut' onclick='student_remove(\"{$st_id}\")' title='Remove Student'><i class='fas fa-minus-circle'></i></button>";
 							echo "</div>";
 						echo "</div>";
 					}

@@ -1,5 +1,6 @@
 <?php  
 	require_once('../inc/connection.php');
+	//for Ajax
 	
 	$search = $_POST['search'];
 
@@ -13,7 +14,17 @@
 						echo $st['st_id'];
 					echo "</div>";
 					echo "<div class='st_pic'>"; 
-						echo "<img src='../img/defaultteacher.png'>";
+						if($st['is_image']!=0){
+							if($st['img_name']!=null){
+								echo "<img src='../img/student_pic/{$st['img_name']}'>";
+							}
+							else{
+								echo "<img src='../img/defaultstudent.png'>";
+							}
+						}
+						else{
+							echo "<img src='../img/defaultstudent.png'>";
+						}
 					echo "</div>";
 					echo "<div class='st_name'>"; 
 						echo $st['first_name'] . " ".$st['last_name'];

@@ -439,7 +439,7 @@
         margin-bottom: 5px;
     }
     .scroll .st_row:hover{
-        color: #f10a0a;
+        color: #28a745;
     }
     .scroll .st_row .pro_pic{
         flex: 1;
@@ -455,12 +455,21 @@
     }
     .scroll .st_row .pro_pic img{
         width: 100%;
+        height: 100%;
     }
     .scroll .st_row .pro_name h5{
         font-size: 14px;
         white-space: nowrap;
         line-height: 50px;
         cursor: default;
+    }
+    .scroll .st_row .pro_del button{
+        outline: none;
+        background: none;
+        border: none;
+        font-size: 10px;
+        margin-top: 18px;
+        color: red;
     }
     .scroll h3{
         font-size: 15px;
@@ -488,9 +497,11 @@
                   <button class="btn" style="margin-left: 2.9rem;" data-toggle="modal" data-target="#addst"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
                 <div class="card-body">
-                    <div class="scroll">
-                        <!-- dynamic student list goes here -->
-                    </div>
+                    <form action="addmedia.php?course_id=<?php echo $course_id; ?>" method=POST>
+                        <div class="scroll">
+                            <!-- dynamic student list goes here -->
+                        </div>
+                    </form>
 
                 </div>
             </div>
@@ -501,7 +512,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Search for Students</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -713,6 +724,21 @@
         },1000);
 
     });
+
+    //remove student aJax
+    function student_remove(no){
+        let stid = no;
+
+        if(true==confirm('Remove This Student?')){
+            $.post('student_delete.php',{
+                student_id:stid,
+                course_id:<?php echo $course_id; ?>
+            },function(data){
+                console.log(data);
+            });
+        }
+        
+    }
 </script>
 
 
