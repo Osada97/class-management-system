@@ -1,4 +1,5 @@
 <?php require_once ('../inc/connection.php'); ?>
+<?php session_start(); ?>
 <?php include_once ('stu_header.php'); ?>
 
 <div class="container">

@@ -54,8 +54,8 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Student's Area</div>
       <div class="list-group list-group-flush">
-        <a href="./dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="./index.php" class="list-group-item list-group-item-action bg-light">Enrolled Courses</a>
+        <a href="./dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="./profile.php" class="list-group-item list-group-item-action bg-light">Profile</a>
 
       </div>

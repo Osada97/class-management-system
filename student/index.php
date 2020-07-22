@@ -1,5 +1,35 @@
+<?php ob_start(); ?>
+<?php session_start(); ?>
 <?php require_once ('../inc/connection.php');?>
 <?php include_once ('stu_header.php'); ?>
+
+<?php  
+    
+    if(!isset($_SESSION['student_id'])){
+        header('Location:../signin.php');
+    }
+    else{
+        $student_id = $_SESSION["student_id"];
+
+        $query = "SELECT * FROM course_enroll WHERE student_id = '{$student_id}'";
+        $result = mysqli_query($connection,$query);
+
+        if($result){
+            if(mysqli_num_rows($result) >0){
+                //display all courses
+            }
+            else{
+                echo $student_id;
+                header('refresh:3;url=dashboard.php');
+            }
+        }
+        else{
+            print_r(mysqli_error($connection));
+        }
+    }
+
+
+?>
 
 
 <div class="container">

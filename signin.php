@@ -51,7 +51,7 @@
 
 					$_SESSION['student_name'] = $student['user_name'];
 					$_SESSION['student_id'] = $student['st_id'];
-					header("Location:student_dashboard.php");
+					header("Location:student/index.php");
 				}
 				else{
 					$query = "SELECT * FROM teacher WHERE email = '{$email}' AND password = '{$enc_password}' AND freez = 0 LIMIT 1";
