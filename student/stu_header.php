@@ -78,30 +78,30 @@
 
               <?php  
 
-                if(!isset($_SESSION['teacher_id'])){
-                  echo '<img src="../img/defaultteacher.png" alt="DP" class="rounded-circle" style="width: 50px; height: 50px">';
+                if(!isset($_SESSION['student_id'])){
+                  echo '<img src="../img/defaultstudent.png" alt="DP" class="rounded-circle" style="width: 50px; height: 50px">';
                 }
                 else{
 
                   //gettting picture
-                  $teacher_id = $_SESSION['teacher_id'];
-                  $query = "SELECT is_image,image_name FROM teacher WHERE teacher_id = {$teacher_id} LIMIT 1";
+                  $student_id = $_SESSION['student_id'];
+                  $query = "SELECT is_image,img_name FROM student WHERE st_id = '{$student_id}' LIMIT 1";
                   $result = mysqli_query($connection,$query);
 
                   if($result){
                     $pic_res = mysqli_fetch_assoc($result);
 
                     if($pic_res['is_image'] != 0){
-                      if($pic_res['image_name'] != null){
-                        $dp = $pic_res['image_name'];
+                      if($pic_res['img_name'] != null){
+                        $dp = $pic_res['img_name'];
                         echo "<img src='../img/teacher_pic/{$dp}' alt='DP' class='rounded-circle' style='width: 50px; height: 50px'>";
                       }
                       else{
-                        echo '<img src="../img/defaultteacher.png" alt="DP" class="rounded-circle" style="width: 50px; height: 50px">';
+                        echo '<img src="../img/defaultstudent.png" alt="DP" class="rounded-circle" style="width: 50px; height: 50px">';
                       }
                     }
                     else{
-                      echo '<img src="../img/defaultteacher.png" alt="DP" class="rounded-circle" style="width: 50px; height: 50px">';
+                      echo '<img src="../img/defaultstudent.png" alt="DP" class="rounded-circle" style="width: 50px; height: 50px">';
                     }
                   }
                   else{
