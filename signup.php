@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <?php include('inc/header.php') ?>
 <?php include('inc/nav.php') ?>
-<?php include('../inc/connection.php') ?>
+<?php include('inc/connection.php') ?>
 
 
 <?php  

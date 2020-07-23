@@ -2,9 +2,9 @@
 <?php session_start(); ?>
 <?php include_once ('stu_header.php'); ?>
 
-<div class="container">
+<div class="container mt-4">
 
-<div class="row row-cols-1 row-cols-md-2">
+<div class="row row-cols-1 row-cols-md-4">
     <div class="col mb-4">
         <div class="card">
             <img src="../img/javascript.png" class="card-img-top" alt="...">
@@ -14,9 +14,12 @@
                 <div class="row justify-content-center">
                     <form action="" >
                         <input type="text" placeholder="Enroll Key">
+                        <div class="mt-4">
                         <button class=" btn btn-info ">Enroll</button>
+                        <button class="btn btn-info ml-2" type="button" data-toggle="modal" data-target="#exampleModal">Read more</button>
+                        </div>
                     </form>
-                    <button class="btn btn-info ml-2" data-toggle="modal" data-target="#exampleModal">Read more</button>
+
                 </div>
             </div>
         </div>
@@ -30,9 +33,12 @@
                 <div class="row justify-content-center">
                 <form action="" >
                     <input type="text" placeholder="Enroll Key">
+                    <div class="mt-4">
                     <button class=" btn btn-info ">Enroll</button>
+                    <button class="btn btn-info ml-2 " type="button" data-toggle="modal" data-target="#exampleModal">Read more</button>
+                    </div>
                 </form>
-                    <button class="btn btn-info ml-2 " data-toggle="modal" data-target="#exampleModal">Read more</button>
+
                 </div>
             </div>
         </div>
@@ -46,9 +52,12 @@
                 <div class="row justify-content-center">
                     <form action="" >
                         <input type="text" placeholder="Enroll Key">
+                        <div class="mt-4">
                         <button class=" btn btn-info ">Enroll</button>
+                        <button class="btn btn-info ml-2" type="button" data-toggle="modal" data-target="#exampleModal">Read more</button>
+                        </div>
                     </form>
-                    <button class="btn btn-info ml-2" data-toggle="modal" data-target="#exampleModal">Read more</button>
+
                 </div>
             </div>
         </div>
@@ -62,9 +71,12 @@
                 <div class="row justify-content-center">
                     <form action="" >
                         <input type="text" placeholder="Enroll Key">
+                        <div class="mt-4">
                         <button class=" btn btn-info">Enroll</button>
+                        <button class="btn btn-info ml-2" type="button" data-toggle="modal" data-target="#exampleModal">Read more</button>
+                        </div>
                     </form>
-                    <button class="btn btn-info ml-2" data-toggle="modal" data-target="#exampleModal">Read more</button>
+
                 </div>
             </div>
         </div>

@@ -74,6 +74,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                  <a href="" class="nav-link mr-3">Username</a>
+              </li>
             <li class="nav-item">
 
               <?php  
