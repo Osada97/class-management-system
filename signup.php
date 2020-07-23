@@ -1,5 +1,4 @@
 <?php ob_start(); ?>
-<<<<<<< HEAD:signup.php
 <?php include('inc/header.php') ?>
 <?php include('inc/nav.php') ?>
 <?php include('inc/connection.php') ?>
