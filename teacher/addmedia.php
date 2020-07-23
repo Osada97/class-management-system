@@ -405,12 +405,14 @@
         margin-bottom: 5px;
     }
     .st_add_us .grid_st{
+        position: relative;
         width: 100%;
         height: 150px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        transition: 0.5s;
     }
     .st_add_us .grid_st .grid_st_pic{
         width: 80px;
@@ -423,6 +425,19 @@
     }
     .st_add_us .grid_st img{
         width: 100%;
+    }
+    .st_add_us .grid_st .grid_remove{
+        position: absolute;
+        top: 12px;
+        right: 15px;
+    }
+    .st_add_us .grid_st .grid_remove button{
+        outline: none;
+        background: none;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        color: red;
     }
     .lis-group{
         transition: 0.9s;
@@ -517,29 +532,10 @@
                             </button>
                         </div>
                         <form class=" my-2 my-lg-0" action="addmedia.php?course_id=<?php echo $course_id; ?>" method="POST">
-                            <div class="modal-body">
+                            <div class="modal-body" style="height: 605px;overflow-y: auto;">
 
                                 <div class="st_add_us">
-                                    <!-- dynamic student profiles goes ine here -->
-                                    <!-- <div class="grid_st">
-                                        <div class="grid_st_pic">
-                                            <img src="../img/defaultteacher.png">
-                                        </div>
-                                        <div class="grid_st_name">
-                                            <p>osada manohar</p>
-                                            <input type="hidden" value="1">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="grid_st">
-                                        <div class="grid_st_pic">
-                                            <img src="../img/defaultteacher.png">
-                                        </div>
-                                        <div class="grid_st_name">
-                                            <p>osada manohar</p>
-                                            <input type="hidden" value="1">
-                                        </div>
-                                    </div> -->
+                                    <!-- dynamically add -->
                                 </div>
                                 <div class="form-inline">
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchbar" autofocus>
@@ -652,9 +648,11 @@
     $(document).ready(function(){
 
         $('#searchbar').on('keyup',function(){
+            var course_id = <?php echo $course_id; ?>;
             var search = $('#searchbar').val();
             $.post('search_result_addmedia.php', {
-                search: search
+                search: search,
+                course_id:course_id
             }, function(data){
                 $('.overflow-auto').html(data);
             });
@@ -676,6 +674,17 @@
         newgrid = document.createElement('div');
         newgrid.classList.add('grid_st');
 
+        grid_remove = document.createElement('div');
+        grid_remove.classList.add('grid_remove');
+        rem_but = document.createElement('button');
+        rem_but.classList.add('rem_but');
+        rem_but.setAttribute('type','button');
+        rem_but.setAttribute('id','rem');
+        rem_but.setAttribute('onclick','rem_sst(event)');
+        rem_but.innerHTML='<i class="fas fa-ban"></i>';
+
+        grid_remove.appendChild(rem_but);
+
         grid_st_pic = document.createElement('div');
         grid_st_pic.classList.add('grid_st_pic');
         img = document.createElement('img');
@@ -695,6 +704,7 @@
         grid_st_name.appendChild(p);
         grid_st_name.appendChild(input);
 
+        newgrid.appendChild(grid_remove);
         newgrid.appendChild(grid_st_pic);
         newgrid.appendChild(grid_st_name);
 
@@ -705,6 +715,16 @@
 
         par.addEventListener('transitionend',function(){
            par.remove();
+        });
+    }
+
+    //remove student
+    function rem_sst(event){
+        let ain = event.target.parentElement.parentElement.parentElement;
+        ain.classList.add('lihide');
+
+        ain.addEventListener('transitionend',function(){
+           ain.remove();
         });
     }
 
