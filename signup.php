@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+<<<<<<< HEAD:signup.php
 <?php include('inc/header.php') ?>
 <?php include('inc/nav.php') ?>
 <?php include('inc/connection.php') ?>
@@ -115,7 +116,7 @@
 
             $convert_password = sha1($password);
 
-            $insert_query = "INSERT INTO student VALUES('{$st_id}','{$firstname}','{$lastname}','{$username}','{$email}','{$phonenumber}','{$convert_password}',0)";
+            $insert_query = "INSERT INTO student(st_id,first_name,last_name,user_name,email,phone_number,password,freez) VALUES('{$st_id}','{$firstname}','{$lastname}','{$username}','{$email}','{$phonenumber}','{$convert_password}',0)";
 
             $insert_result = mysqli_query($connection,$insert_query);
 
@@ -229,4 +230,4 @@
 </body>
 <?php mysqli_close($connection); ?>
 </html>
-<?php include('inc/footer.php') ?>
+<?php include('/inc/footer.php') ?>
