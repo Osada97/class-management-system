@@ -2,8 +2,23 @@
 <?php session_start(); ?>
 <?php include_once ('stu_header.php'); ?>
 
-<div class="container mt-4">
+<div class="row mt-4">
+    <div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 300px">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+    </div>
 
+</div>
+
+
+
+<div class="container mt-4">
 <div class="row row-cols-1 row-cols-md-4">
     <div class="col mb-4">
         <div class="card">
@@ -107,13 +122,31 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
+<div class="container">
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+</div>
 
 
 

@@ -173,6 +173,21 @@ if (isset($_POST['add'])) {
                           name="description"><?php echo $description; ?></textarea>
             </div>
         </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Select</label>
+            <div class="col-sm-10">
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            </div>
+        </div>
+
+
+
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Course Type</legend>
