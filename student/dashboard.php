@@ -22,7 +22,7 @@
 <div class="row row-cols-1 row-cols-md-4">
     <div class="col mb-4">
         <div class="card">
-            <img src="../img/javascript.png" class="card-img-top" alt="...">
+            <img src="../img/javascript.png" class="card-img-top" alt="..." style="min-width: 200px;height: 200px">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -41,7 +41,7 @@
     </div>
     <div class="col mb-4">
         <div class="card">
-            <img src="../img/javascript.png" class="card-img-top" alt="...">
+            <img src="../img/javascript.png" class="card-img-top" alt="..." style="min-width: 200px;height: 200px">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -60,7 +60,7 @@
     </div>
     <div class="col mb-4">
         <div class="card">
-            <img src="../img/javascript.png" class="card-img-top" alt="...">
+            <img src="../img/javascript.png" class="card-img-top" alt="..." style="min-width: 200px;height: 200px">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
@@ -79,7 +79,7 @@
     </div>
     <div class="col mb-4">
         <div class="card">
-            <img src="../img/javascript.png" class="card-img-top" alt="...">
+            <img src="../img/javascript.png" class="card-img-top" alt="..." style="min-width: 200px;height: 200px">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>

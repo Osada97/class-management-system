@@ -229,4 +229,4 @@
 </body>
 <?php mysqli_close($connection); ?>
 </html>
-<?php include('/inc/footer.php') ?>
+<?php include('inc/footer.php') ?>

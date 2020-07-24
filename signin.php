@@ -157,10 +157,10 @@
 
             <div class="form-group">
 				<label for="password">Password:</label>
-				<input type="password" name="password" id="password" class="form-control">
+				<input type="password" name="password" id="password" class="form-control" >
             </div>
             <div class="text-center">
-				<input type="submit" value="Sign In" name="submit" class="btn btn-primary ">
+				<input type="submit" value="Sign In" name="submit" class="btn btn-primary" >
             </div>
 		</form>
         </div>
