@@ -75,7 +75,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                  <a href="" class="nav-link mr-3">Username</a>
+                <?php  
+                  $student_id = $_SESSION['student_id'];
+                  $query = "SELECT user_name FROM student WHERE st_id = '{$student_id}' LIMIT 1";
+                  $result = mysqli_query($connection,$query);
+
+                  $pic_name = mysqli_fetch_assoc($result);
+                ?>
+                  <a href="" class="nav-link mr-3"><?php echo $pic_name['user_name']; ?></a>
               </li>
             <li class="nav-item">
 
