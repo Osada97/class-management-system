@@ -29,6 +29,10 @@
                        $in_query = "INSERT INTO course_enroll(course_id,teacher_id,student_id) VALUES({$course_id},{$teacher_id},'{$student_id}')";
                        $result_in = mysqli_query($connection,$in_query);
 
+                       if($result_in){
+                            header('Location:index.php');
+                       }
+
                     }
                     else{
                         $error[] = "Enroll Key Is Invalid";
