@@ -34,7 +34,7 @@
                             $display_courses.='</div>';
                                 $display_courses.='<div class="drop_down">';
                                     $display_courses.='<a href="#">Open</a>';
-                                    $display_courses.='<a href="#">Unenroll</a>';
+                                    $display_courses.='<a href="unenrollcporse.php?course_id='.$course_id.'" onclick="return confirm(\'Are You Sure?\')">Unenroll</a>';
                                 $display_courses.='</div>';
                         $display_courses .='</div>';
                         $display_courses .='<a href="index.php">';
