@@ -102,6 +102,7 @@
 
 <!-- style goes in here -->
 <style>
+    /*error styling*/
     .container{
         position: relative;
     }
@@ -145,16 +146,86 @@
             width: 90%;
         }
     }
+    /*styling show all courses*/
+    .mb-4{
+        min-width: 33%;
+    }
+    .card{
+        min-width: 100%;
+        transition: 0.5s;
+    }
+    .card:hover{
+        box-shadow: 0px 0px 15px 15px #eeeeee4d;
+    }
+    .card .course_img{
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+    }
+    .card .course_img img{
+        width: 100%;
+        height: 100%;
+    }
+    .card .tiny_dis{
+        width: 100%;
+        padding: 8px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .card .tiny_dis i{
+        margin-right: 5px;
+        color: #ff6868;
+    }
+    .card .tiny_dis h6{
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #868080;
+    }
+    .card .bod{
+        height: 80px;
+        font-size: 13px;
+    }
+    .card h6 i{
+        margin-right: 5px;
+    }
+    .card form{
+        width: 100%;
+        text-align: center;
+    }
+    .card form input{
+        width: 80%;
+        outline-color: #b03b3b;
+        border:1px solid #b03b3b;
+        border-radius: 3px;
+        box-shadow: 0px 0px 15px 5px #e49c9c1c; 
+        padding: 3px;
+    }
+    .row .container{
+        display: flex;
+        justify-content: center;
+    }
+    .form-inline{
+        width: 100%;
+    }
+    .card .time{
+        width: 100%;
+        padding: 3px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 12px;
+    }
+    .card .time i{
+        margin-right: 3px;
+    }
 </style>
 
 
 <div class="row mt-4">
     <div class="container">
-    <div class="col-md-2"></div>
     <div class="col-md-8">
         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search_cos" style="width: 300px">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Courses" aria-label="Search" id="search_cos" style="width: 100%">
         </form>
     </div>
     <div class="col-md-2"></div>

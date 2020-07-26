@@ -9,6 +9,9 @@
         header('Location:../signin.php');
     }
     else{
+
+        require_once('../inc/coursetimeago.php');
+
         $display_courses ="";
         $student_id = $_SESSION["student_id"];
 
@@ -33,12 +36,13 @@
                                 $display_courses.='<button><i class="fas fa-ellipsis-v"></i></button>';
                             $display_courses.='</div>';
                                 $display_courses.='<div class="drop_down">';
-                                    $display_courses.='<a href="#">Open</a>';
+                                    $display_courses.='<a href="viewcourse.php">Open</a>';
                                     $display_courses.='<a href="unenrollcporse.php?course_id='.$course_id.'" onclick="return confirm(\'Are You Sure?\')">Unenroll</a>';
                                 $display_courses.='</div>';
                         $display_courses .='</div>';
-                        $display_courses .='<a href="index.php">';
+                        $display_courses .='<a href="viewcourse.php">';
                             //img set
+                            $display_courses .= '<div class="cous_img">';
                             if($course_de['course_img']!=0){
                                 if($course_de['img_name']!=null){
                                     $img_name = $course_de['img_name'];
@@ -51,9 +55,25 @@
                             else{
                                 $display_courses .= '<img src="../img/csd.jpg" class="card-img-top" alt="...">';
                             }
+                            $display_courses .= '</div>';
 
                             $display_courses.= '<div class="card-body">';
                                 $display_courses.= '<h5 class="card-title">' . $course_de['course_name'] .'</h5>';
+                                //displya teacher name
+                                $query_tc = "SELECT CONCAT(first_name,' ',last_name) AS name FROM teacher WHERE teacher_id = {$course_de['teacher_id']} LIMIT 1";
+                                $result_tc = mysqli_query($connection,$query_tc);
+                                $nma = mysqli_fetch_assoc($result_tc);
+
+                                $display_courses .= '<h6><i class="fas fa-user-tie"></i>'. $nma['name'] .'</h6>';
+
+                                $display_courses .= '<div class="tiny_dis">';
+                                    $display_courses .= "<div class='course_type'>";
+                                        $display_courses .= "<h6><i class='fas fa-graduation-cap'></i>" . $course_de['course_type'] . "</h6>";
+                                    $display_courses .= "</div>";
+                                    $display_courses .= "<div class='class_type'>";
+                                        $display_courses .= "<h6><i class='fas fa-school'></i>" . $course_de['class_type'] . "</h6>";
+                                    $display_courses .= "</div>";
+                                $display_courses .= '</div>';
 
                                 if(strlen($course_de['description'])>80){
                                     $display_courses.= '<p class="card-text">' . substr($course_de['description'],0,80) .'...</p>';
@@ -64,6 +84,9 @@
 
                             $display_courses.= '</div>';
                         $display_courses.="</a>";
+                                $display_courses.= '<div class="time">';
+                                    $display_courses.= '<p><i class="far fa-clock"></i>'.course_time_ago($course_de["date"]).'</p>';
+                                $display_courses.= '</div>';
                         $display_courses.= '</div>';
                     }
                 }
@@ -90,8 +113,19 @@
         text-decoration: none;
         color: #000;
     }
+    .container{
+        margin-top: 25px;
+    }
     .card{
         position: relative;
+        min-width: 350px;
+        max-width: 350px;
+        margin-top: 15px;
+        transition: 0.5s;
+        border: 1px solid #ec5b5b6e;
+    }
+    .card:hover{
+        box-shadow: 0px 0px 12px 9px #eeeeee7d;
     }
     .card .option{
         position: absolute;
@@ -133,6 +167,50 @@
     .card .option .drop_down a:hover{
         background-color: #f7f7f7;
         transform: translateX(-2px);
+    }
+
+    /*card styling*/
+    .card .cous_img{
+        width: 100%;
+        height: 180px;
+    }
+    .card .cous_img img{
+        width: 100%;
+        height: 100%;
+    }
+    .card .card-body{
+        height: 250px;
+    }
+    .card .card-body i{
+        margin-right: 5px;
+    }
+    .card .card-body .tiny_dis{
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+        color: #868080;
+    }
+    .card .card-body .tiny_dis i{
+        color: #ff6868;
+    }
+    .card .card-body .tiny_dis h6{
+        font-size: 13px;
+    }
+    .card .card-body p{
+        font-size: 13px;
+    }
+    .card .time{
+        width: 100%;
+        padding: 3px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 12px;
+    }
+    .card .time i{
+        margin-right: 3px;
     }
 </style>
 

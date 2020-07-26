@@ -2,6 +2,7 @@
 	/*Ajax*/
 
 	require_once('../inc/connection.php');
+	require_once('../inc/coursetimeago.php');
 
 	$search = $_POST['search'];
 	$student_id = $_POST['student_id'];
@@ -16,6 +17,7 @@
 				echo '<div class="col mb-4">';
 					echo '<div class="card">';
 						//img set
+						echo "<div class='course_img'>";
 						if($alcos['course_img']!=0){
 							if($alcos['img_name']!=null){
 								$img_name = $alcos['img_name'];
@@ -28,9 +30,27 @@
 						else{
 							echo '<img src="../img/csd.jpg" class="card-img-top" alt="...">';
 						}
+						echo "</div>";
 
 						echo '<div class="card-body">';
-							echo '<h5 class="card-title">'.$alcos['course_name'].'</h5>';
+							echo '<h4 class="card-title">'.$alcos['course_name'].'</h4>';
+
+							//display teacher name
+							$query_tc = "SELECT CONCAT(first_name,' ',last_name) AS name FROM teacher WHERE teacher_id = {$alcos['teacher_id']} LIMIT 1";
+							$result_tc = mysqli_query($connection,$query_tc);
+
+							$nam = mysqli_fetch_assoc($result_tc);
+							echo '<h6><i class="fas fa-user-tie"></i>'.$nam['name'].'</h6>';
+
+							echo "<div class= 'tiny_dis'>";
+							echo "<div class='course_type'>";
+								echo "<h6><i class='fas fa-graduation-cap'></i>" . $alcos['course_type'] . "</h6>";
+							echo "</div>";
+							echo "<div class='class_type'>";
+								echo "<h6><i class='fas fa-school'></i>" . $alcos['class_type'] . "</h6>";
+							echo "</div>";
+							echo "</div>";
+
 							//cheking discription has more than 100 words
 							echo '<div class="bod">';
 								if(strlen($alcos['description'])>80){
@@ -66,6 +86,9 @@
 								echo '</form>';
 							echo '</div>';
 						echo '</div>';
+								echo '<div class="time">';
+									echo '<p><i class="far fa-clock"></i>'.course_time_ago($alcos["date"]).'</p>';
+								echo '</div>';
 					echo '</div>';
 				echo ' </div>';
 			}
