@@ -1,3 +1,22 @@
+<?php ob_start(); ?>
+<?php session_start(); ?>
+<?php require_once('../inc/connection.php') ?>
+
+<?php
+
+  if(!isset($_SESSION['admin_id'])){
+    header('Location:../signin.php');
+  }  
+
+  $admin_id = $_SESSION['admin_id'];
+
+  $query_dp ="SELECT * FROM admin WHERE admin_id={$admin_id} LIMIT 1";
+  $result_dp =mysqli_query($connection,$query_dp);
+
+  $dis = mysqli_fetch_assoc($result_dp);
+
+?>
+
 <?php include('../inc/header.php')?>
 <style>
 #wrapper {
@@ -75,13 +94,29 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="../index.php">Username</a>
+              <a class="nav-link" href="admin_dashboard.php"><?php echo $dis['admin_name'] ?></a>
             </li>
             <li class="nav-item">
-                <img src="../img/javascript.png" alt="" class="rounded-circle" style="width: 50px; height: 50px">
+
+                <?php  
+
+                  if($dis['is_image']!=0){
+                    if($dis['img_name']!=null){
+                      echo '<img src="../img/'.$dis['img_name'].'" alt="" class="rounded-circle" style="width: 50px; height: 50px">';
+                    }
+                    else{
+                      echo '<img src="../img/admin.png" alt="" class="rounded-circle" style="width: 50px; height: 50px">';
+                    }
+                  }
+                  else{
+                    echo '<img src="../img/admin.png" alt="" class="rounded-circle" style="width: 50px; height: 50px">';
+                  }
+
+                ?>
+                
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="../logout.php">
                 Logout
               </a>
 
