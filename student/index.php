@@ -36,11 +36,11 @@
                                 $display_courses.='<button><i class="fas fa-ellipsis-v"></i></button>';
                             $display_courses.='</div>';
                                 $display_courses.='<div class="drop_down">';
-                                    $display_courses.='<a href="viewcourse.php">Open</a>';
+                                    $display_courses.='<a href="viewcourse.php?course_id='.$course_id.'">Open</a>';
                                     $display_courses.='<a href="unenrollcporse.php?course_id='.$course_id.'" onclick="return confirm(\'Are You Sure?\')">Unenroll</a>';
                                 $display_courses.='</div>';
                         $display_courses .='</div>';
-                        $display_courses .='<a href="viewcourse.php">';
+                        $display_courses .='<a href="viewcourse.php?course_id='.$course_id.'">';
                             //img set
                             $display_courses .= '<div class="cous_img">';
                             if($course_de['course_img']!=0){
