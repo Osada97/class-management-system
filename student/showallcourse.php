@@ -82,7 +82,7 @@
 										}
 									}
 
-									echo '<button class="btn btn-info ml-2" type="button" data-toggle="modal" data-target="#exampleModal">Read more</button>';
+									echo '<button class="btn btn-info ml-2" type="button" data-toggle="modal" data-target="#exampleModal" onclick="course_details('.$alcos['course_id'].')">Read more</button>';
 								echo '</div>';
 								echo '</form>';
 							echo '</div>';
