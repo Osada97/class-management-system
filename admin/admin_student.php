@@ -56,7 +56,7 @@ $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
                             <td><?php echo $details['user_name'];?></td>
                             <td><?php echo $details['email'];?></td>
                             <td><button class="btn btn-danger">Remove</button></td>
-                            <td><button class="btn btn-warning">Freeze</button></td>
+                            <td><input type="checkbox" checked data-toggle="toggle" data-on="Freeze" data-onstyle="warning" data-off="active" data-offstyle="success"></td>
                             <td><button class="btn btn-info">More</button></td>
 
                         </tr>
