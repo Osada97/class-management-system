@@ -1,12 +1,56 @@
 <?php include('../inc/admin_header.php') ?>
 <?php require_once ('../inc/connection.php');
 
-$query = 'select * from student';
-$result = mysqli_query($connection,$query);
-$data = mysqli_fetch_all($result,MYSQLI_ASSOC);
-//var_dump($data);
-
 ?>
+
+<style>
+ 
+.switch{
+    position: relative;
+    width: 65px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.switch .slider{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #f48fb1;
+    border-radius: 35px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.switch .slider:before{
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #eee;
+    transition: 0.5s;
+}
+.switch input{
+    display: none;
+}
+.switch input:checked + .slider{
+    background-color: #616fc7;
+}
+.switch input:checked + .slider:before{
+    transform: translateX(40px);
+}
+
+</style>
+
       <div class="container-fluid">
         <h1 class="mt-4">Student Management</h1>
        
@@ -47,26 +91,14 @@ $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
                         <th scope="col"></th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <?php foreach ($data as $details): ?>
-                        <tr>
-                            <td scope="row"><?php echo $details['st_id'];?></td>
-                            <td><?php echo $details['first_name'];?></td>
-                            <td><?php echo $details['last_name'];?></td>
-                            <td><?php echo $details['user_name'];?></td>
-                            <td><?php echo $details['email'];?></td>
-                            <td><button class="btn btn-danger">Remove</button></td>
-                            <td><input type="checkbox" checked data-toggle="toggle" data-on="Freeze" data-onstyle="warning" data-off="active" data-offstyle="success"></td>
-                            <td><button class="btn btn-info">More</button></td>
-
-                        </tr>
-                    <?php endforeach;?>
-
+                    <tbody id="tbody">
+                    
+                        <!-- dynamically add in show_st_table.php using Ajax -->
 
                     </tbody>
                 </table>
 
-
+                <label for=""></label>
 
                 <!--end Table-->
                 </div>
@@ -74,5 +106,54 @@ $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
             </div>
         </div>
 
+        <script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script><!-- font awsome script -->
+
+
   <?php include('../inc/admin_footer.php')?>
+        <script>
+
+            //loading table using ajax
+            $(document).ready(function(){
+
+                setInterval(function(){
+                    $.post('show_st_table.php',{},
+                        function(data){
+                            $('#tbody').html(data);
+                        });
+                },2000);
+            });
+
+            //ajax remove students
+            function rem_stident(st_no){
+                var student_no = st_no;
+
+                $.post('remove_students.php',{
+                    student_no:student_no
+                });
+            }
+
+            //ajax freez students
+            function frez_student(st_no,event){
+                var student_no = st_no;
+                var isck = event.target.getAttribute('checked');
+
+                if(isck==null){
+                    $.post('student_freez.php',{
+                        freez :'false',
+                        student_id:student_no
+                    },function(data){
+                        console.log(data);
+                    });
+                }
+                else{
+                    $.post('student_freez.php',{
+                        freez :'true',
+                        student_id:student_no
+                    },function(data){
+                        console.log(data);
+                    });
+                }
+            }
+
+        </script>
 

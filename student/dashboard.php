@@ -218,6 +218,56 @@
     .card .time i{
         margin-right: 3px;
     }
+    .modal-body{
+        width: 100%;
+    }
+    .modal-body h5{
+        font-size: 16px;
+    }
+    .modal-body .course_grid{
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .modal-body .course_grid .tostudent_grid,.coure_type_grid,.class_type_grid{
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+    }
+    .modal-body .course_grid h6{
+        flex: 1;
+        text-transform: capitalize;
+    }
+    .modal-body  h5{
+        font-size: 18px;
+        margin: 15px 0;
+        cursor: default;
+        letter-spacing: 1.5px;        
+        text-transform: capitalize;
+    }
+    .modal-body  h6 i{
+        display: block;
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+    .modal-body .course_grid h6 i{
+        color: #ef7a7a;
+        transition: 1s;
+    }
+    .modal-body .course_grid h6 i:hover{
+        transform: rotateY(180deg);
+    }
+    .modal-body .dis{
+        width: 100%;
+        overflow: hidden;
+    }
+    .modal-body  p{
+        margin-top: 20px;
+        text-align: justify;
+        color: #777;
+    }
 </style>
 
 
@@ -274,12 +324,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <ul>
-                    <li>Teacher:-</li>
-                    <li>Students Enrolled:-</li>
-                    <li>Description:-</li>
-                </ul>
+            <div class="modal-body" id="bod">
+                <!-- dynamical show course Details -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -365,6 +411,18 @@
 
     });
 </script>
+<script>
+    //aJax Read More
+    function course_details(no){
+        var course_id = no;
+
+        $.post('readmore_course.php',{
+            course_id:course_id   
+        },function(data){
+            $('#bod').html(data);
+        });
+    }
+</script> 
 <script>
     let enroll_key = document.querySelector('#enroll_key');
 
