@@ -1,4 +1,14 @@
+<?php ob_start(); ?>
 <?php include_once('../inc/admin_header.php') ?>
+
+<?php  
+    
+    if(!isset($_SESSION['admin_id'])){
+        header("Location:../signin.php");
+    }
+
+?>
+
       <div class="container-fluid">
         <h1 class="mt-4">Teacher Management</h1>
         
@@ -7,12 +17,58 @@
 <?php include_once "../inc/adnav.php"; ?>
 <?php require_once ('../inc/connection.php');
 
-$query = 'select * from teacher';
-$result = mysqli_query($connection,$query);
-$data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 //var_dump($data);
 
 ?>
+
+<style>
+ 
+.switch{
+    position: relative;
+    width: 65px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.switch .slider{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #f48fb1;
+    border-radius: 35px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.switch .slider:before{
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #eee;
+    transition: 0.5s;
+}
+.switch input{
+    display: none;
+}
+.switch input:checked + .slider{
+    background-color: #616fc7;
+}
+.switch input:checked + .slider:before{
+    transform: translateX(40px);
+}
+
+</style>
+
 <!-- start Table -->
 <table class="table table-hover mt-4">
     <thead>
@@ -27,33 +83,63 @@ $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
         <th scope="col"></th>
     </tr>
     </thead>
-    <tbody>
-    <?php foreach ($data as $details): ?>
-        <tr>
-            <td scope="row"><?php echo $details['teacher_id'];?></td>
-            <td><?php echo $details['first_name'];?></td>
-            <td><?php echo $details['last_name'];?></td>
-            <td><?php echo $details['skills'];?></td>
-            <td><?php echo $details['email'];?></td>
-            <td><button class="btn btn-danger">Remove</button></td>
-            <td><input type="checkbox" checked data-toggle="toggle" data-on="Freeze" data-onstyle="warning" data-off="active" data-offstyle="success"></td>
-            <td><button class="btn btn-info">More</button></td>
-
-        </tr>
-    <?php endforeach;?>
-
-
+    <tbody id="tbody">
+        <!-- display in ajax -->
     </tbody>
 </table>
 
 
-
 <!--end Table-->
-
-
-
       
 <?php include_once('../inc/admin_footer.php')?>
+<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script><!-- font awsome script -->
+
+<script>
+    $(document).ready(function(){
+
+        setInterval(function(){
+            $.post('show_tc_table.php',{},function(data){
+                $('#tbody').html(data);
+            });
+        },1000);
+    });
+
+    function rem_teacher(teacher_id){
+        var teacher_id = teacher_id;
+
+        if(true==confirm("Are You Sure?")){
+
+            $.post('remove_teacher.php',{
+                teacher_id:teacher_id
+            });
+        }
+
+    }
+
+    function frez_teacher(teacher_id){
+        var teacher_id = teacher_id;
+        var isck = event.target.getAttribute('checked');
+
+        if(isck==null){
+
+            $.post('teacher_freez.php',{
+                teacher_id:teacher_id,
+                freez:'false'
+            },function(data){
+                console.log(data);
+            });
+        }
+        else{
+            $.post('teacher_freez.php',{
+                teacher_id:teacher_id,
+                freez:'true'
+            },function(data){
+                console.log(data);
+            });
+        }
+
+    }
+</script>
 
 
 
