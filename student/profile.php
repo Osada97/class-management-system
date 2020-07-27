@@ -327,12 +327,53 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" name="update">Update Profile</button>
+
+                        <button type="button" class="btn btn-primary" name="update" data-toggle="modal" data-target="#password" data-dismiss="modal" style="float: left">Advanced</button>
+
+
                     </div>
+
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="password" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Password and Account Deletion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Current Password</label>
+                            <input type="password" class="form-control" id="recipient-name" name="cpassword" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">New Password</label>
+                            <input type="password" class="form-control" id="recipient-name" name="npassword1" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="recipient-name" name="npassword2" value="">
+                        </div>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-danger">Delete Account</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
 
