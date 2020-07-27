@@ -33,7 +33,7 @@ $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
                 </div>
 
     <!--Student Table-->
-
+                <div class="table-responsive-sm">
                 <table class="table table-hover mt-4">
                     <thead>
                     <tr>
@@ -69,6 +69,7 @@ $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 
                 <!--end Table-->
+                </div>
                 <div class="col-md-2"></div>
             </div>
         </div>
