@@ -139,7 +139,7 @@
             $phone_number = mysqli_real_escape_string($connection,$_POST['phone_number']);
             $bio = mysqli_real_escape_string($connection,$_POST['bio']);
 
-            $uda_query = "UPDATE student SET first_name = '{$first_name}',last_name ='{$last_name}',user_name = '{$user_name}',email='{$email}',phone_number='{$phone_number}' WHERE st_id ='{$student_id}'";
+            $uda_query = "UPDATE student SET first_name = '{$first_name}',last_name ='{$last_name}',user_name = '{$user_name}',email='{$email}',phone_number='{$phone_number}',bio='{$bio}' WHERE st_id ='{$student_id}'";
             $result_uda = mysqli_query($connection,$uda_query);
 
             if($result_uda){
@@ -151,6 +151,97 @@
     }
 
 ?>
+
+<?php  
+
+    //changed Password Form Validation
+    if(isset($_POST['save'])){
+
+        if(empty(trim($_POST['cpassword']))){
+            $error[] = "Current Password Field Is Empty";
+        }
+        if(empty(trim($_POST['npassword1']))){
+            $error[] = "New Password Field Is Empty";
+        }
+        if(empty(trim($_POST['npassword2']))){
+            $error[] = "Confirm Password Field Is Empty";
+        }
+
+        if(strlen($_POST['cpassword'])>12){
+            $error[] = "Current Password Must Be Less Than 12 Characters";
+        }
+        if(strlen($_POST['npassword1'])>12){
+            $error[] = "New Password Must Be Less Than 12 Characters";
+        }
+        if(strlen($_POST['npassword2'])>12){
+            $error[] = "Confirm Password Must Be Less Than 12 Characters";
+        }
+
+        //checking current password is right 
+
+        //if there is no errors
+        if(!empty(trim($_POST['cpassword'])) && empty($error)){
+            $password = mysqli_real_escape_string($connection,$_POST['cpassword']);
+            $shaPassword = sha1($password);
+
+            $query_pw = "SELECT * FROM student WHERE st_id='{$student_id}' AND password='{$shaPassword}' LIMIT 1";
+            $result_pw = mysqli_query($connection,$query_pw);
+
+
+            if(mysqli_num_rows($result_pw)==0){
+                $error[] = "Current Password Is Invalid";
+            }
+        }
+
+        //check new password and current password is same
+        if($_POST['npassword1'] != $_POST['npassword2']){
+            $error[] = 'Confirm password Is Invalid';
+        }
+
+        /*if thre is no errors*/
+        if(empty($error)){
+            $conpassword = mysqli_real_escape_string($connection,$_POST['npassword2']);
+            $shhpassword = sha1($conpassword);
+
+            $uppw_query = "UPDATE student SET password = '{$shhpassword}' WHERE st_id='{$student_id}' LIMIt 1";
+            $result_uppw = mysqli_query($connection,$uppw_query);
+
+            if($result_uppw){
+                echo "<script>";
+                    echo "alert('Password Changed')";
+                echo "</script>";
+            }
+        }
+    }
+
+    //delete account
+
+    if(isset($_POST['delete_account'])){
+        if(empty(trim($_POST['cdlpassword']))){
+            $error[] = "Password Is Invalid";
+        }
+        if(strlen($_POST['cdlpassword'])>12){
+            $error[] = "Password Must Be Less Than 12 Characters";
+        }
+
+        if(empty($error)){
+            $password = mysqli_real_escape_string($connection,$_POST['cdlpassword']);
+            $shapass =sha1($password);
+            $query_dl_us = "DELETE FROM student WHERE st_id ='{$student_id}' AND password='{$shapass}' LIMIT 1";
+            $result_dl_us = mysqli_query($connection,$query_dl_us);
+
+            if($result_dl_us){
+                echo "<script>";
+                    echo "alert('Your Account Successfully Deleted')";
+                echo "</script>";
+                header("location:../index.php");
+            }
+        }
+    }
+
+?>
+
+
 
 <!-- styling goes in here -->
 <style>
@@ -192,6 +283,24 @@
         .errors{
             width: 90%;
         }
+    }
+
+    /* styling for change password and delete account */
+    .drbtn{
+        background: none;
+        outline: none;
+        margin-left: 15px;
+        border: none;
+        color: red;
+        font-size: 18px;
+    }
+    .dl_drop{
+        display: none;
+    }
+    .chnagepas,.deleteus{
+        margin-bottom: 25px;
+        font-size: 18px;
+        color: #ff7979;
     }
 </style>
 
@@ -350,21 +459,42 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="POST">
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Current Password</label>
-                            <input type="password" class="form-control" id="recipient-name" name="cpassword" value="">
+                    <form action="profile.php" method="POST">
+                        <label for="cp" class="chnagepas">Change Password</label>
+                        <button type="button" class="drbtn" id="cp"><i class="fas fa-caret-down"></i></button>
+                        
+                        <div class="cp_drop">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Current Password</label>
+                                <input type="password" class="form-control" id="recipient-name" name="cpassword" >
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">New Password</label>
+                                <input type="password" class="form-control" id="recipient-name" name="npassword1" >
+
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="recipient-name" name="npassword2" >
+
+                            </div>
+                            <button type="submit" class="btn btn-primary" name="save">Save changes</button>
                         </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">New Password</label>
-                            <input type="password" class="form-control" id="recipient-name" name="npassword1" value="">
+                    </form>
+                    <form action="profile.php" method="POST">
+                        <label for="dl"  class="deleteus">Delete Account</label>
+                        <button type="button" class="drbtn" id="dl"><i class="fas fa-caret-down"></i></button>
+
+                        <div class="dl_drop">
+                            <p>If You Want To Delete Account Permanently, Please Input Password And Click "Delete My Account" Button.</p>
+                            <p>When You Delete Your Account You Can Not Recover This Account.</p>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Password</label>
+                                <input type="password" class="form-control" id="recipient-name" name="cdlpassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" name="delete_account">Delete Account</button>
                         </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="recipient-name" name="npassword2" value="">
-                        </div>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                        <button type="button" class="btn btn-danger">Delete Account</button>
+                        
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -396,5 +526,20 @@
         });
     });
 </script>
-
 <?php include "stu_footer.php"; ?>
+<script>
+    //slide change password delete account
+
+    $(document).ready(function(){
+
+        $('#cp').click(function(){
+            $('.cp_drop').slideToggle();
+            $('.dl_drop').slideToggle();;
+        });
+        $('#dl').click(function(){
+            $('.cp_drop').slideToggle();
+            $('.dl_drop').slideToggle();;
+        });
+    });
+
+</script>

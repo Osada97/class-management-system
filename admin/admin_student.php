@@ -1,5 +1,12 @@
+<?php ob_start() ?>
 <?php include('../inc/admin_header.php') ?>
-<?php require_once ('../inc/connection.php');
+<?php require_once ('../inc/connection.php');?>
+
+<?php  
+    
+    if(!isset($_SESSION['admin_id'])){
+        header('Location:../signin.php');
+    }
 
 ?>
 
@@ -77,7 +84,7 @@
                 </div>
 
     <!--Student Table-->
-                <div class="table-responsive-sm">
+
                 <table class="table table-hover mt-4">
                     <thead>
                     <tr>
@@ -101,7 +108,6 @@
                 <label for=""></label>
 
                 <!--end Table-->
-                </div>
                 <div class="col-md-2"></div>
             </div>
         </div>
@@ -127,9 +133,12 @@
             function rem_stident(st_no){
                 var student_no = st_no;
 
-                $.post('remove_students.php',{
-                    student_no:student_no
-                });
+                if(true==confirm("Are You Sure?")){
+                    
+                    $.post('remove_students.php',{
+                        student_no:student_no
+                    });
+                }
             }
 
             //ajax freez students
