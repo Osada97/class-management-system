@@ -154,13 +154,6 @@
 
 
 
-        if(!empty($error)){
-            echo "<script>";
-                foreach ($error as  $value) {
-                    echo "alert('Can Not Update Profile Settings, {$value}')";
-                }
-            echo "</script>";
-        }
 
         if(empty($error)){
 
