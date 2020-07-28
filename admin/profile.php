@@ -1,23 +1,19 @@
-<?php ob_start(); ?>
-<?php session_start(); ?>
-<?php require_once '../inc/connection.php';?>
+<?php ob_start() ?>
+<?php include('../inc/admin_header.php') ?>
+<?php require_once ('../inc/connection.php');?>
 
 <?php
 
-if(!isset($_SESSION['teacher_id'])){
+if(!isset($_SESSION['admin_id'])){
     header("Location:../signin.php");
 }
 else{
-    $teacher_id = $_SESSION['teacher_id'];
+    $admin_id = $_SESSION['admin_id'];
 
-    $first_name="";
-    $last_name="";
+    $admin_name="";
     $email="";
-    $bio="";
-    $skills="";
-    $phone_number="";
 
-    $query = "SELECT * FROM teacher WHERE teacher_id = {$teacher_id} AND freez = 0 LIMIT 1";
+    $query = "SELECT * FROM admin WHERE admin_id = {$admin_id} LIMIT 1";
     $result = mysqli_query($connection,$query);
 
     if($result){
@@ -44,35 +40,21 @@ $error = array();
 //update profile goes in here
 if (isset($_POST['update'])) {
 
-    $first_name = mysqli_real_escape_string($connection,$_POST['first_name']);
-    $last_name = mysqli_real_escape_string($connection,$_POST['last_name']);
+    $admin_name = mysqli_real_escape_string($connection,$_POST['admin_name']);
     $email = mysqli_real_escape_string($connection,$_POST['email']);
-    $phone_number = mysqli_real_escape_string($connection,$_POST['phone_number']);
-
-    if(!empty($_POST['sks'])){
-        $skills = implode('/', $_POST['sks']);//convert array to string
-    }
-    else{
-        $skills = "";
-    }
-
-    $bio = mysqli_real_escape_string($connection,$_POST['bio']);
 
     //form validation
-    if(empty(trim($first_name))){
+    if(empty(trim($admin_name))){
         $error[] = "First Name Field Is Empty";
-    }
-    if(empty(trim($last_name))){
-        $error[] = "Last Name Field Is Empty";
     }
     if(empty(trim($email))){
         $error[] = "Email Field Is Empty";
     }
 
-    $fields_len = array("first_name" => 100,"last_name"  => 100,"email"  => 100,"phone_number" => 12,"bio"  => 400);
+    $fields_len = array("admin_name" => 100,"email"  => 100);
 
     foreach ($fields_len as  $len => $length) {
-        if(strlen($len) > $length){
+        if(strlen($_POST[$len]) > $length){
             $error[] = $len . "Field Must Be Less Than " . $length . "Charters";
         }
     }
@@ -83,7 +65,7 @@ if (isset($_POST['update'])) {
     }
 
     //checking enter email is already used
-    $query = "SELECT * FROM teacher WHERE email = '{$email}' AND teacher_id != {$teacher_id}";
+    $query = "SELECT * FROM admin WHERE email = '{$email}' AND admin_id != {$admin_id}";
     $result_set = mysqli_query($connection,$query);
 
     if($result_set){
@@ -99,7 +81,7 @@ if (isset($_POST['update'])) {
                     $error[] = "This Email Is already Entered";
                 }
                 else{
-                    $query = "SELECT * FROM admin WHERE email = '{$email}'";
+                    $query = "SELECT * FROM teacher WHERE email = '{$email}'";
                     $result_set = mysqli_query($connection,$query);
 
                     if($result_set){
@@ -112,18 +94,18 @@ if (isset($_POST['update'])) {
         }
     }
     //uploading profile picture
-    if ($_FILES['teacherpic']['name'] != "") {
-        if ($_FILES['teacherpic']['error'] == 0) {
+    if ($_FILES['adminpic']['name'] != "") {
+        if ($_FILES['adminpic']['error'] == 0) {
 
-            if ($_FILES['teacherpic']['size'] / 1024 < 500) {
+            if ($_FILES['adminpic']['size'] / 1024 < 500) {
 
-                if ($_FILES['teacherpic']['type'] == 'image/jpeg') {
+                if ($_FILES['adminpic']['type'] == 'image/jpeg') {
 
-                    $file_name = $_FILES['teacherpic']['name'];
-                    $file_type = $_FILES['teacherpic']['type'];
-                    $temp_name = $_FILES['teacherpic']['tmp_name'];
+                    $file_name = $_FILES['adminpic']['name'];
+                    $file_type = $_FILES['adminpic']['type'];
+                    $temp_name = $_FILES['adminpic']['tmp_name'];
 
-                    $upload_to = "../img/teacher_pic/";
+                    $upload_to = "../img/admin_pic/";
 
                     if (empty($error)) {
 
@@ -131,7 +113,7 @@ if (isset($_POST['update'])) {
 
                         if ($isimg) {
                             $is_tc_image = 1;
-                            $query = "UPDATE teacher SET is_image = 1,image_name ='{$file_name}' WHERE teacher_id = {$teacher_id}";
+                            $query = "UPDATE admin SET is_image = 1,img_name ='{$file_name}' WHERE admin_id = {$admin_id}";
                             $result = mysqli_query($connection,$query);
                         }
 
@@ -153,18 +135,9 @@ if (isset($_POST['update'])) {
     }
 
 
-
-    if(!empty($error)){
-        echo "<script>";
-        foreach ($error as  $value) {
-            echo "alert('Can Not Update Profile Settings, {$value}')";
-        }
-        echo "</script>";
-    }
-
     if(empty($error)){
 
-        $in_query = "UPDATE teacher SET first_name = '{$first_name}',last_name='{$last_name}',email='{$email}', phone_number = '{$phone_number}', skills = '{$skills}',bio ='{$bio}' WHERE teacher_id = {$teacher_id} ";
+        $in_query = "UPDATE admin SET admin_name = '{$admin_name}',email='{$email}' WHERE admin_id = {$admin_id} ";
         $result_in = mysqli_query($connection,$in_query);
 
         if($result_in){
@@ -178,11 +151,49 @@ if (isset($_POST['update'])) {
 
 ?>
 
-<?php include_once 'teacher_header.php';?>
 
 
 <!-- styles goes in here -->
 <style>
+    .container{
+        position: relative;
+    }
+    .errors{
+        position: absolute;
+        width: 400px;
+        border: 1px solid #ff4040;
+        box-shadow: 1px 10px 12px 0px #ff9e9e4a;
+        padding: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fffffff2;
+        transition: 0.5s;
+    }
+    .errors .close,.err_content{
+        width: 100%;
+    }
+    .errors .close{
+        text-align: right;
+    }
+    .errors .close button{
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        border: none;
+        background: none;
+    }
+    .errors .err_content{
+        font-size: 14px;
+        color: #8f2828;
+    }
+    .erhide{
+        opacity: 0;
+    }
+    @media screen and (max-width: 500px) {
+        .errors{
+            width: 90%;
+        }
+    }
     .skiils{
         margin-bottom: 10px;
 
@@ -246,67 +257,92 @@ if (isset($_POST['update'])) {
 </style>
 
 <div class="container text-center">
+    <?php  
+
+        if(!empty($error)){
+            echo ' <div class="errors" id="errors">';
+                echo '<div class="close">';
+                    echo '<button type="button" id="close"><i class="fas fa-times"></i></button>';
+                echo '</div>';
+                echo '<div class="err_content">';
+                    foreach ($error as $value) {
+                        echo "<p>";
+                            echo $value;
+                        echo "</p>";
+                    }
+                echo "</div>";
+            echo "</div>";
+        }
+
+    ?>
     <div class="jumbotron">
-        <h1 class="display-4"><?php echo $prode['first_name'] . " " . $prode['last_name']; ?></h1>
+        <h1 class="display-4"><?php echo $prode['admin_name']; ?></h1>
         <?php
         //grtting image
         if($prode['is_image'] != 0){
-            if($prode['image_name'] != null){
-                echo "<img src='../img/teacher_pic/{$prode['image_name']}' alt='Profile pic' class='rounded-circle' style='width: 200px; height: 200px'>";
+            if($prode['img_name'] != null){
+                echo "<img src='../img/admin_pic/{$prode['img_name']}' alt='Profile pic' class='rounded-circle' style='width: 200px; height: 200px'>";
             }
             else{
-                echo '<img src="../img/defaultteacher.png" alt="Profile pic" class="rounded-circle" style="width: 200px; height: 200px">';
+                echo '<img src="../img/admin.png" alt="Profile pic" class="rounded-circle" style="width: 200px; height: 200px">';
             }
         }
         else{
-            echo '<img src="../img/defaultteacher.png" alt="Profile pic" class="rounded-circle" style="width: 200px; height: 200px">';
+            echo '<img src="../img/admin.png" alt="Profile pic" class="rounded-circle" style="width: 200px; height: 200px">';
         }
 
         ?>
 
-        <p class="lead">profile id:- 0<?php echo $teacher_id; ?></p>
-        <p class="lead">Skills</p>
-
-        <?php /*dynamic skills*/
-
-        $skill_color = array('badge badge-pill badge-primary','badge badge-pill badge-secondary','badge badge-pill badge-success','badge badge-pill badge-danger','badge badge-pill badge-warning');
-
-        $pskills = explode('/', $prode['skills']);
-        $i=0;
-
-        foreach ($pskills as $value) {
-            if($i < sizeof($skill_color)){
-                echo "<span class=\" mr-2 {$skill_color[$i]}\">" . $value . "</span>";
-                $i++;
-            }
-            else{
-                $i=0;
-            }
-        }
-
-        ?>
-
+        <p class="lead">profile id:- 0<?php echo $admin_id; ?></p>
+    
         <hr class="my-4">
-        <p><?php echo $prode['bio']; ?></p>
+        
         <div class="row justify-content-center" >
             <div class="card border-info mb-3" style="max-width: 18rem; margin-right: 20px" >
-                <div class="card-header">Courses I have</div>
+                <div class="card-header">Total Courses</div>
                 <div class="card-body text-info">
-                    <h1 class="card-title">5</h1>
+                    <h1 class="card-title">
+                        <?php  
+                            $query_get="SELECT count(course_id) AS to_coursse FROM course";
+                            $result = mysqli_query($connection,$query_get);
+
+                            $to = mysqli_fetch_assoc($result);
+                            echo $to['to_coursse'];
+
+                        ?>
+                    </h1>
 
                 </div>
             </div>
             <div class="card border-info mb-3" style="max-width: 18rem; margin-right: 20px">
-                <div class="card-header">Students Enrolled</div>
+                <div class="card-header">Total Students</div>
                 <div class="card-body text-info">
-                    <h1 class="card-title">100</h1>
+                    <h1 class="card-title">
+                        <?php  
+                            $query_get="SELECT count(st_id) AS to_student FROM student";
+                            $result = mysqli_query($connection,$query_get);
+
+                            $to = mysqli_fetch_assoc($result);
+                            echo $to['to_student'];
+
+                        ?>
+                    </h1>
 
                 </div>
             </div>
             <div class="card border-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">Number of Subjects</div>
+                <div class="card-header">Total Teachers</div>
                 <div class="card-body text-info">
-                    <h1 class="card-title">3</h1>
+                    <h1 class="card-title">
+                        <?php  
+                            $query_get="SELECT count(teacher_id) AS to_teacher FROM teacher";
+                            $result = mysqli_query($connection,$query_get);
+
+                            $to = mysqli_fetch_assoc($result);
+                            echo $to['to_teacher'];
+
+                        ?>
+                    </h1>
 
                 </div>
             </div>
@@ -330,51 +366,18 @@ if (isset($_POST['update'])) {
             <div class="modal-body">
                 <form action="profile.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">First Name</label>
-                        <input type="text" class="form-control" id="recipient-name" name="first_name" value="<?php echo($prode['first_name']) ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Last Name</label>
-                        <input type="text" class="form-control" id="recipient-name" name="last_name" value="<?php echo($prode['last_name']) ?>">
+                        <label for="recipient-name" class="col-form-label">Admin Name</label>
+                        <input type="text" class="form-control" id="recipient-name" name="admin_name" value="<?php echo($prode['admin_name']) ?>">
                     </div>
                     <div class="form-group">
                         <label for="recipient-email" class="col-form-label">Email</label>
                         <input type="email" class="form-control" id="recipient-email" name="email" value="<?php echo($prode['email']) ?>">
                     </div>
                     <div class="form-group">
-                        <label for="recipient-email" class="col-form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="recipient-email" name="phone_number" value="<?php echo($prode['phone_number']) ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-email" class="col-form-label">Skills</label>
-                        <div class="skiils">
-                            <!-- dynamicaly added skills -->
-                            <?php
-                            echo "<div class='pr_skills'>";
-                            if(!empty($prode['skills'])){
-                                $nskills = explode('/', $prode['skills']);
-                                foreach ($nskills as $value) {
-                                    echo "<div class='sparent'>";
-                                    echo "<input type='text' name='sks[]'  value='{$value}' class='sk'>" ;
-                                    echo "<button type='button' class='trash'><i class=\"fas fa-trash\"></i></button>" ;
-                                    echo "</div>";
-                                }
-                            }
-                            echo "</div>";
-                            ?>
-                        </div>
-                        <input type="text" class="form-control" id="recipient-skills" placeholder="Add Your Skills">
-                        <button type="button" id="add" class="form-control"><i class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Change Profile Picture</label>
-                        <input type="file" class="form-control" id="profile-pic" name="teacherpic">
+                        <input type="file" class="form-control" id="profile-pic" name="adminpic">
                     </div>
 
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Profile Bio</label>
-                        <textarea class="form-control" id="message-text" name="bio"><?php echo($prode['bio']) ?></textarea>
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" name="update">Update Profile</button>
@@ -387,63 +390,25 @@ if (isset($_POST['update'])) {
 
 <script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
 
+
+<?php include_once '../inc/admin_footer.php';?>
+
 <script>
-    const pr_skills = document.querySelector('.pr_skills');
+    //errors
+    const close = document.querySelector('#close');
+    const errors= document.querySelector('#errors');
+    const body = document.querySelector('body');
+    close.addEventListener('click',function(){
+        errors.classList.add('erhide');
 
-    //remove skills
-    pr_skills.addEventListener('click', function(event){
-        const item = event.target;
-        if(item.classList[0] === 'trash'){
-            item.parentElement.classList.add('trh');
-            item.parentElement.addEventListener('transitionend',function(){
-                item.parentElement.remove();
-            });
-        }
+        errors.addEventListener('transitionend',function(){
+            errors.style.display = "none";
+        });
     });
-    //add skills
-    const add = document.querySelector('#add');
-    skillInput = document.querySelector('#recipient-skills');
-
-    add.addEventListener('click',function(){
-
-        if(skillInput.value !== ""){
-            toadd = document.createElement('div');
-            toadd.classList.add('sparent');
-
-            //create input
-            toinput = document.createElement('input');
-            toinput.setAttribute('type','text');
-            toinput.setAttribute('value',skillInput.value);
-            toinput.setAttribute('name','sks[]');
-            toinput.classList.add('sk');
-            toadd.appendChild(toinput);
-            skillInput.value = "";
-
-            //create button
-            tobutton = document.createElement('button');
-            tobutton.setAttribute('type','button');
-            tobutton.innerHTML = '<i class="fas fa-trash"></i>';
-            tobutton.classList.add('trash');
-            toadd.appendChild(tobutton);
-
-            pr_skills.appendChild(toadd);
-        }
+    body.addEventListener('click',function(){
+        errors.classList.add('erhide');
+        errors.addEventListener('transitionend',function(){
+            errors.style.display = "none";
+        });
     });
-
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php include_once 'teacher_footer.php';?>

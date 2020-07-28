@@ -72,7 +72,7 @@
         $fields_len = array("first_name" => 100,"last_name"  => 100,"email"  => 100,"phone_number" => 12,"bio"  => 400);
 
         foreach ($fields_len as  $len => $length) {
-            if(strlen($len) > $length){
+            if(strlen($_POST[$len]) > $length){
                 $error[] = $len . "Field Must Be Less Than " . $length . "Charters";
             }    
         }
@@ -183,6 +183,45 @@
 
 <!-- styles goes in here --> 
 <style>
+    .container{
+        position: relative;
+    }
+    .errors{
+        position: absolute;
+        width: 400px;
+        border: 1px solid #ff4040;
+        box-shadow: 1px 10px 12px 0px #ff9e9e4a;
+        padding: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fffffff2;
+        transition: 0.5s;
+    }
+    .errors .close,.err_content{
+        width: 100%;
+    }
+    .errors .close{
+        text-align: right;
+    }
+    .errors .close button{
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        border: none;
+        background: none;
+    }
+    .errors .err_content{
+        font-size: 14px;
+        color: #8f2828;
+    }
+    .erhide{
+        opacity: 0;
+    }
+    @media screen and (max-width: 500px) {
+        .errors{
+            width: 90%;
+        }
+    }
     .skiils{
         margin-bottom: 10px;
 
@@ -246,6 +285,24 @@
 </style>
 
 <div class="container text-center">
+    <?php  
+
+        if(!empty($error)){
+            echo ' <div class="errors" id="errors">';
+                echo '<div class="close">';
+                    echo '<button type="button" id="close"><i class="fas fa-times"></i></button>';
+                echo '</div>';
+                echo '<div class="err_content">';
+                    foreach ($error as $value) {
+                        echo "<p>";
+                            echo $value;
+                        echo "</p>";
+                    }
+                echo "</div>";
+            echo "</div>";
+        }
+
+    ?>
     <div class="jumbotron">
         <h1 class="display-4"><?php echo $prode['first_name'] . " " . $prode['last_name']; ?></h1>
         <?php 
@@ -430,6 +487,25 @@
         }
     });
 
+</script>
+<script>
+    //errors
+    const close = document.querySelector('#close');
+    const errors= document.querySelector('#errors');
+    const body = document.querySelector('body');
+    close.addEventListener('click',function(){
+        errors.classList.add('erhide');
+
+        errors.addEventListener('transitionend',function(){
+            errors.style.display = "none";
+        });
+    });
+    body.addEventListener('click',function(){
+        errors.classList.add('erhide');
+        errors.addEventListener('transitionend',function(){
+            errors.style.display = "none";
+        });
+    });
 </script>
 
 
