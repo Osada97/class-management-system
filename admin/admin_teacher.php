@@ -14,6 +14,7 @@ $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 ?>
 <!-- start Table -->
+<div class="table-responsive-md">
 <table class="table table-hover mt-4">
     <thead>
     <tr>
@@ -46,7 +47,7 @@ $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
     </tbody>
 </table>
 
-
+</div>
 
 <!--end Table-->
 
