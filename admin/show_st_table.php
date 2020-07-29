@@ -26,7 +26,7 @@
             else{
             	echo '<td><div class="switch"><label class="sw"><input type="checkbox" id="tg" checked="checked" onclick="frez_student(\''.$details["st_id"].'\',event)"><span class="slider"></span></label></div></td>';
             }
-            echo '<td><button class="btn btn-info">More</button></td>';
+            echo '<td><button class="btn btn-info" data-toggle="modal" data-target="#more">More</button></td>';
         echo '</tr>';
                             
     endforeach;
