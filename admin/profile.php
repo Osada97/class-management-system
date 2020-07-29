@@ -381,6 +381,43 @@ if (isset($_POST['update'])) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" name="update">Update Profile</button>
+                        <button type="button" class="btn btn-primary" name="update" data-toggle="modal" data-target="#password" data-dismiss="modal" style="float: left">Advanced</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="password" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password and Account Deletion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="profile.php" method="POST">
+                    <label for="cp" class="chnagepas">Change Password</label>
+                    <button type="button" class="drbtn" id="cp"><i class="fas fa-caret-down"></i></button>
+
+                    <div class="cp_drop">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Current Password</label>
+                            <input type="password" class="form-control" id="recipient-name" name="cpassword" >
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">New Password</label>
+                            <input type="password" class="form-control" id="recipient-name" name="npassword1" >
+
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="recipient-name" name="npassword2" >
+
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="save">Save changes</button>
                     </div>
                 </form>
             </div>
