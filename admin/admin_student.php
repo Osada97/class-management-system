@@ -67,6 +67,12 @@
             <div class="container">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
+                    <div class="container mt-4 mb-4">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
                     <ul class="nav nav-pills nav-fill">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">Add Student</a>
