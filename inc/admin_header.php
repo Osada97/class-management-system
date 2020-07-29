@@ -63,6 +63,42 @@
     margin-left: -15rem;
   }
 }
+.btn-primary{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+.btn-primary:hover{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+.btn-primary:focus{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+  box-shadow: 0 0 0 0.2rem #ff262680;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+a i{
+  margin-right: 10px;
+}
+a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover{
+  background-color: #fc7b7929 !important;
+}
+.list-group-item-action:focus, .list-group-item-action:hover{
+  color: #ed2a26;
+}
+#sidebar-wrapper .sidebar-heading{
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+.bg-light{
+  background-color: #f8f9fa87!important;
+}
+
+
 
 </style>
 <div class="d-flex" id="wrapper">
@@ -71,12 +107,10 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Admin Area</div>
       <div class="list-group list-group-flush">
-        <a href="../admin/admin_dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="../admin/admin_student.php" class="list-group-item list-group-item-action bg-light">Manage Students</a>
-        <a href="../admin/admin_teacher.php" class="list-group-item list-group-item-action bg-light">Manage Teachers</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="../admin/profile.php" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <a href="../admin/admin_dashboard.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a>
+        <a href="../admin/admin_student.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-graduate"></i>Manage Students</a>
+        <a href="../admin/admin_teacher.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-tie"></i>Manage Teachers</a>
+        <a href="../admin/profile.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-circle"></i>Profile</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -85,7 +119,7 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Menu</button>
+        <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -94,7 +128,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="admin_dashboard.php"><?php echo $dis['admin_name'] ?></a>
+              <a class="nav-link" href="admin_dashboard.php" style="color: #ed2a26;font-size: 17px;letter-spacing: 1.5px"><?php echo $dis['admin_name'] ?></a>
             </li>
             <li class="nav-item">
 
