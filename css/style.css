@@ -10,3 +10,15 @@
     border-radius: 30px;
     padding: 10px;
 }
+
+.home-search{
+    border: 1px solid gray;
+    border-radius: 30px;
+    padding: 10px;
+    width: 600px ;
+    text-align: center;
+}
+/*.homeimg{
+    width: 1920px;
+    height: 1080px;
+}*/

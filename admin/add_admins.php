@@ -1,4 +1,4 @@
-<?php require_once('inc/connection.php'); ?>
+<?php require_once('../inc/connection.php'); ?>
 
 <?php
 

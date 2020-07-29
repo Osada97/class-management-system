@@ -75,7 +75,7 @@
         <a href="../admin/admin_student.php" class="list-group-item list-group-item-action bg-light">Manage Students</a>
         <a href="../admin/admin_teacher.php" class="list-group-item list-group-item-action bg-light">Manage Teachers</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="../admin/profile.php" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
       </div>
     </div>

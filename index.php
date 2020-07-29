@@ -1,41 +1,40 @@
-<?php include ('inc/header.php') ?>
-<?php include ('inc/nav.php')?>
+<?php include('inc/header.php') ?>
+<?php include('inc/nav.php') ?>
+<div class="container-fluid" style="margin-top: 100px" >
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
 
-<div class="container">
-    <h1 class="text-center">Browse Courses</h1>
-    <div class="card-deck">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <div class="row justify-content-center text-center ">
+                <h2>Education To Your Fingertips! It's 21<sup>st</sup> Boost up your Education</h2>
+                <h4 class="mb-3 mt-3"><small class="text-muted">Start one of our 1000 high quality courses from the
+                        world’s leading experts today!</small></h4>
+                <input type="search" placeholder="search what you need to learn today" class="home-search">
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div>
+                    <button class="btn btn-outline-info btn-lg ">search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
     </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-</div>
 </div>
 
 
+<div class="container" style="margin-top: 180px">
+    <div class="row">
+    <div class="col-md-2">
+        <h3> Join with our online classes to make your learning process smooth</h3>
+    </div>
+        <div class="col-md-10">
+            <img src="img/home_1.jpg" alt="" style="width: 100%;height: 80%">
+    </div>
+    </div>
+</div>
 
 
-
-<?php include ('inc/footer.php') ?>
+<?php include('inc/footer.php') ?>
 
 
 
