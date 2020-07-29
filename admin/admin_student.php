@@ -68,25 +68,8 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="container mt-4 mb-4">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search Student Name Or Email Or Student Id" aria-label="Search" id="search_student">
                     </div>
-                    <ul class="nav nav-pills nav-fill">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Add Student</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Edit Student</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Remove Student</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#" >Student List</a>
-                        </li>
-                    </ul>
                 </div>
                 <!-- Starting Modal replace id with suitable name and write the button -->
 
@@ -152,12 +135,13 @@
             //loading table using ajax
             $(document).ready(function(){
 
-                setInterval(function(){
+                $(window).on('load',function(){
                     $.post('show_st_table.php',{},
                         function(data){
                             $('#tbody').html(data);
-                        });
-                },2000);
+                    });
+                });
+
             });
 
             //ajax remove students
@@ -194,6 +178,17 @@
                     });
                 }
             }
+
+            //ajax search student
+            $('#search_student').on('keyup',function(){
+                var search = $('#search_student').val();
+
+                $.post('admin_search_student.php',{
+                    search:search
+                },function(data){
+                    $('#tbody').html(data);
+                });
+            });
 
         </script>
 

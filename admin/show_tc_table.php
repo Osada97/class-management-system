@@ -7,8 +7,13 @@
 	$result = mysqli_query($connection,$query);
 	$data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
-	foreach ($data as $details): 
-        echo '<tr>';
+	foreach ($data as $details):
+        if($details['freez']==1) {
+            echo '<tr style="background-color:#deedfd47">';
+        }
+        else{
+            echo '<tr style="background-color:#fff">';
+        }
         	echo '<td scope="row">'.$details["teacher_id"].'</td>';
         	echo '<td>'.$details["first_name"].'</td>';
         	echo '<td>'.$details["last_name"].'</td>';

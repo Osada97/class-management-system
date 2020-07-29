@@ -131,16 +131,6 @@ if(isset($_POST['submit'])){
 ?>
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LankaE Learn</title>
-</head>
-<body>
-
 <div class="container-fluid">
     <h1 class="mt-4">Add Teacher</h1>
 
@@ -214,6 +204,7 @@ if(isset($_POST['submit'])){
             <button class="btn btn-primary" type="submit" name="submit">Sign Up</button>
         </form>
     </div>
+</div>
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
@@ -234,10 +225,7 @@ if(isset($_POST['submit'])){
             }, false);
         })();
     </script>
-
+<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script><!-- font awsome script -->
     <?php include_once ("../inc/admin_footer.php");?>
-</body>
-</html>
-
 
 

@@ -44,7 +44,7 @@ $c_count = mysqli_num_rows($c_result);
             </div>
         </div>
       </div>
-      
+<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script><!-- font awsome script -->   
   <?php include('../inc/admin_footer.php')?>
 
 

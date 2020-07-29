@@ -70,13 +70,8 @@
 </style>
 
 <div class="container mt-4 mb-4">
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Teacher Name Or Teacher Email" aria-label="Search" id="search_teacher">
 </div>
-
-
 
 <!-- Starting Modal replace id with suitable name and write the button -->
 
@@ -132,11 +127,12 @@
 <script>
     $(document).ready(function(){
 
-        setInterval(function(){
+        $(window).on('load',function(){
             $.post('show_tc_table.php',{},function(data){
                 $('#tbody').html(data);
             });
-        },1000);
+        });
+
     });
 
     function rem_teacher(teacher_id){
@@ -174,6 +170,17 @@
         }
 
     }
+
+    //ajax search
+    $('#search_teacher').on('keyup',function(){
+
+        var search = $('#search_teacher').val();
+        $.post('admin_search_teacher.php',{
+            search:search
+        },function(data){
+            $('#tbody').html(data);
+        });
+    });
 </script>
 
 
