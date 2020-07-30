@@ -218,7 +218,7 @@
 
     if(isset($_POST['delete_account'])){
         if(empty(trim($_POST['cdlpassword']))){
-            $error[] = "Password Is Invalid";
+            $error[] = "Password Field Is Empty";
         }
         if(strlen($_POST['cdlpassword'])>12){
             $error[] = "Password Must Be Less Than 12 Characters";
