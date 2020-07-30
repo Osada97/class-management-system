@@ -67,6 +67,80 @@
     transform: translateX(40px);
 }
 
+/*model styling*/
+.modal-body .teacher_dp{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.modal-body .teacher_details{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.modal-body .teacher_details h3{
+    font-size: 20px;
+    color: red;
+}
+.modal-body .teacher_details .cous_det{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.modal-body .teacher_details .cous_det .numcosbox,.numstbox{
+    flex: 1;
+    margin: 0 5px;
+    padding: 15px;
+    border: 1px solid #eee;
+    text-align: center;
+    background-color: #fff4f4;
+}
+.modal-body .teacher_details .cous_det .numcosbox h4,.numstbox h4{
+    font-size: 15px;
+}
+.modal-body .teacher_details .cous_det .numcosbox h6,.numstbox h6{
+    font-size: 35px;
+    color: #fb1d1d;
+}
+.modal-body .teacher_details .email{
+    margin: 12px 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+.modal-body .teacher_details .email i{
+    margin-right: 5px;
+}
+.modal-body .teacher_details .tc_skills{
+    width: 100%;
+    margin-top: 12px;
+}
+.modal-body .teacher_details .tc_skills h5{
+    font-size: 16px;
+}
+.modal-body .teacher_details .tc_skills ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;
+    color: green;
+}
+.modal-body .teacher_details .tc_skills ul li i{
+    margin-right: 5px;
+    color: orange;
+}
+.modal-body .teacher_details  .number{
+    font-size: 17px;
+    letter-spacing: 1.3px;
+    color: #5002dc;
+}
+.modal-body .teacher_details  h5 i{
+    margin-right: 8px;
+}
+
 </style>
 
 <div class="container mt-4 mb-4">
@@ -76,8 +150,8 @@
 <!-- Starting Modal replace id with suitable name and write the button -->
 
 <div class="modal fade" id="more" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog" id="teacher_more_model">
+        <!-- <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -85,13 +159,35 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <div class="teacher_dp">
+                    <img src='../img/defaultteacher.png' alt='Profile pic' class='rounded-circle' style='width: 150px; height: 150px'>
+                </div>
+                <div class="teacher_details">
+                    <h3>Osada Manohara</h3>
+        
+                    <div class="cous_det">
+                        <div class="numcosbox">
+                            <h4>Number Of Course Teacher Provide</h4>
+                            <h6>8</h6>
+                        </div>
+                        <div class="numstbox">
+                            <h4>Number Of Students Teacher Have</h4>
+                            <h6>8</h6>
+                        </div>
+                    </div>
+        
+                    <h4>osadamanohara55@gmial.com</h4>
+                    <div class="tc_skills">
+                        <ul>
+                            <li>php</li>
+                            <li>css</li>
+                            <li>html</li>
+                        </ul>
+                    </div>
+                </div>
+                <h5>0768597090</h5>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -181,6 +277,17 @@
             $('#tbody').html(data);
         });
     });
+
+    //ajax teacher more button
+    function teacher_more(t_id){
+        var teacher_id = t_id;
+
+        $.post('admin_teacher_more.php',{
+            teacher_id:teacher_id
+        },function(data){
+            $('#teacher_more_model').html(data);
+        });
+    }
 </script>
 
 
