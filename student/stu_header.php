@@ -47,6 +47,55 @@
   }
 }
 
+.btn-primary{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+.btn-primary:hover{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+.btn-primary:focus{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+  box-shadow: 0 0 0 0.2rem #ff262680;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+#sidebar-wrapper .sidebar-heading{
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+a i{
+  margin-right: 10px;
+}
+a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover{
+  background-color: #fc7b7929 !important;
+}
+.list-group-item-action:focus, .list-group-item-action:hover{
+  color: #ed2a26;
+}
+#sidebar-wrapper .sidebar-heading{
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+.bg-light{
+  background-color: #f8f9fa87!important;
+}
+.rounded-circle{
+  border: 2px solid #ff383866;
+}
+.border-info {
+  border-color: #c2a9a991 !important;
+}
+.card-title{
+  color: red;
+} 
+
 </style>
 <div class="d-flex" id="wrapper">
 
@@ -54,9 +103,9 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Student's Area</div>
       <div class="list-group list-group-flush">
-        <a href="./index.php" class="list-group-item list-group-item-action bg-light">Enrolled Courses</a>
-        <a href="./dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="./profile.php" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="./index.php" class="list-group-item list-group-item-action bg-light"><i class="far fa-sticky-note"></i>Enrolled Courses</a>
+        <a href="./dashboard.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a>
+        <a href="./profile.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-circle"></i>Profile</a>
 
       </div>
     </div>

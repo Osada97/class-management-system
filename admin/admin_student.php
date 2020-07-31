@@ -112,6 +112,24 @@
 .modal-body .student_details  h5 i{
     margin-right: 8px;
 }
+.col-md-8{
+    width: 100%;
+}
+.search_row{
+    width: 100%;
+}
+.search_row .form-control{
+    width: 50%;
+    box-shadow: none;
+    transition: 0.6s;
+}
+.search_row .form-control:focus{
+    width: 100%;
+}
+#tbody h2{
+    margin: 25px 0;
+    color: #ff710c;
+}
 
 </style>
 
@@ -121,10 +139,10 @@
       </div>
 
         <div class="row">
-            <div class="container">
+            <div class="container ">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="container mt-4 mb-4">
+                    <div class="container search_row mt-4 mb-4">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search Student Name Or Email Or Student Id" aria-label="Search" id="search_student">
                     </div>
                 </div>

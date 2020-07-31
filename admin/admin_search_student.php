@@ -2,7 +2,6 @@
 	require_once('../inc/connection.php');
 
 	$search = $_POST['search'];
-	echo $search;
 
 	$query_search = "SELECT * FROM student WHERE st_id LIKE '%{$search}$' OR CONCAT(first_name,' ',last_name) LIKE '{$search}%' OR email LIKE '%{$search}$'";
 	$result_search = mysqli_query($connection,$query_search);

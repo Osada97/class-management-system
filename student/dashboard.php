@@ -268,6 +268,14 @@
         text-align: justify;
         color: #777;
     }
+    .search:focus{
+        box-shadow: none;
+    }
+    #show h1{
+        font-size: 30px;
+        margin: 15px 0;
+        color: #ff5200;
+    }
 </style>
 
 
@@ -275,7 +283,7 @@
     <div class="container">
     <div class="col-md-8">
         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Courses" aria-label="Search" id="search_cos" style="width: 100%">
+            <input class="form-control mr-sm-2 search" type="search" placeholder="Search Courses" aria-label="Search" id="search_cos" style="width: 100%">
         </form>
     </div>
     <div class="col-md-2"></div>

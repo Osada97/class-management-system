@@ -14,7 +14,7 @@
         
       </div>
 
-<?php include_once "../inc/adnav.php"; ?>
+
 <?php require_once ('../inc/connection.php');
 
 //var_dump($data);
@@ -139,6 +139,23 @@
 }
 .modal-body .teacher_details  h5 i{
     margin-right: 8px;
+}
+.container{
+    display: flex;
+    justify-content: flex-end;
+}
+.form-control{
+    width: 30%;
+    transition: 0.6s;
+}
+.form-control:focus{
+    padding: 5px;
+    box-shadow: none;
+    width: 50%;
+}
+#tbody h2{
+    margin: 25px auto;
+    color: #ff710c;
 }
 
 </style>

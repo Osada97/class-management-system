@@ -97,6 +97,24 @@ a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover
 .bg-light{
   background-color: #f8f9fa87!important;
 }
+.container-fluid{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.container-fluid h1{
+  font-size: 2rem;
+  color: #ff4e4e;
+  font-weight: 400;
+}
+.rounded-circle{
+  border: 2px solid #ff383866;
+}
+.border-info {
+  border-color: #c2a9a991 !important;
+}
+.card-title{
+  color: red;
+} 
 
 
 
@@ -110,6 +128,8 @@ a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover
         <a href="../admin/admin_dashboard.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a>
         <a href="../admin/admin_student.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-graduate"></i>Manage Students</a>
         <a href="../admin/admin_teacher.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-tie"></i>Manage Teachers</a>
+        <a href="../admin/addteacher.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-plus"></i>Add Teachers</a>
+        <a href="../admin/add_admins.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users-cog"></i>Add Admins</a>
         <a href="../admin/profile.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-circle"></i>Profile</a>
       </div>
     </div>

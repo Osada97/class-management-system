@@ -1,6 +1,5 @@
 <?php require_once('../inc/connection.php'); ?>
 <?php include ('../inc/admin_header.php')?>
-<?php include ('../inc/adnav.php')?>
 
 <?php
 

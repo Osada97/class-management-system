@@ -13,6 +13,11 @@ $c_result = mysqli_query($connection,$course);
 $c_count = mysqli_num_rows($c_result);
 ?>
 
+<style>
+    .card-title{
+        color: #fff;
+    }
+</style>
 
       <div class="container-fluid">
         <h1 class="mt-4">Dashboard</h1>
