@@ -47,6 +47,58 @@
   }
 }
 
+.btn-primary{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+.btn-primary:hover{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+.btn-primary:focus{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+  box-shadow: 0 0 0 0.2rem #ff262680;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+  background-color: #ed2a26;
+  border-color: #ed2a26;
+}
+#sidebar-wrapper .sidebar-heading{
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+a i{
+  margin-right: 10px;
+}
+a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover{
+  background-color: #fc7b7929 !important;
+}
+.list-group-item-action:focus, .list-group-item-action:hover{
+  color: #ed2a26;
+}
+.bg-light{
+  background-color: #f8f9fa87!important;
+}
+.rounded-circle{
+  border: 2px solid #ff383866;
+}
+.border-info {
+  border-color: #c2a9a991 !important;
+}
+.card-title{
+  color: red;
+} 
+.container-fluid{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.container-fluid h1,h3{
+  font-size: 35px;
+  color: #ff4b4be0;
+}
+
 </style>
 <div class="d-flex" id="wrapper">
 
@@ -54,12 +106,9 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Teacher's Area</div>
       <div class="list-group list-group-flush">
-        <a href="teacher_dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="tcourse.php" class="list-group-item list-group-item-action bg-light">Manage Courses</a>
-        <a href="tstudent.php" class="list-group-item list-group-item-action bg-light">Manage Students</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="profile.php" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <a href="teacher_dashboard.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a>
+        <a href="tcourse.php" class="list-group-item list-group-item-action bg-light"><i class="far fa-sticky-note"></i>Manage Courses</a>
+        <a href="profile.php" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-circle"></i>Profile</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -120,3 +169,4 @@
           </ul>
         </div>
       </nav>
+<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>

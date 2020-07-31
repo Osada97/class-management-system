@@ -132,12 +132,32 @@
     .dropdownop .dropdown_content a:hover{
         background-color: #eeeeee94;
     }
+    .card{
+        border: 1px solid #ff050545;
+        margin-bottom: 30px;
+        transition: 0.3s;
+    }
+    .card:hover{
+        box-shadow: 0px 0px 19px 8px #eee;
+    }
+    .card-body h5{
+        color: red;
+    }
+    .card-body p{
+        color: #6d6464;
+    }
+    .card-footer{
+        text-align: right;
+    }
+    .card-footer .text-muted{
+        font-size: 13px;
+        font-weight: 600;
+    }
 </style>
 
 <div class="container-fluid">
     <h1 class="mt-4">Dashboard</h1>
 </div>
-<?php include_once 'tnav.php';?>
 
 <div class="container mt-4">
     <div class="card-deck">
@@ -148,7 +168,7 @@
 </div>
 
 
-<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
+
 <?php include('./teacher_footer.php') ?>
 
 

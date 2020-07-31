@@ -103,7 +103,9 @@ if (isset($_POST['add'])) {
         $result = mysqli_query($connection, $query);
 
         if ($result) {
-            echo "<div class=\"alert alert-success text-center \" role=\"alert\"> Course added successfully</div>";
+            $success="<div class=\"alert alert-success text-center \" role=\"alert\"> Course added successfully
+                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                    <span aria-hidden=\"true\">&times;</span> </button></div>";
             $course_name = "";
             $enroll_key = "";
             $description = "";
@@ -122,7 +124,6 @@ if (isset($_POST['add'])) {
 
 <?php include_once '../inc/header.php'; ?>
 <?php include_once 'teacher_header.php'; ?>
-<?php include_once 'tnav.php'; ?>
 
 <div class="container">
     <h3 class="text-center mt-4 mb-4">Add Course</h3>
@@ -141,6 +142,10 @@ if (isset($_POST['add'])) {
             echo "<p>";
         }
         echo "</div>";
+    }
+
+    if(!empty($success)){
+        echo $success;
     }
 
     ?>
@@ -173,19 +178,6 @@ if (isset($_POST['add'])) {
                           name="description"><?php echo $description; ?></textarea>
             </div>
         </div>
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Select</label>
-            <div class="col-sm-10">
-            <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            </div>
-        </div>
-
 
 
         <fieldset class="form-group">

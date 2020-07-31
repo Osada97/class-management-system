@@ -298,6 +298,17 @@
     .card{
         margin-bottom: 15px;
     }
+    .card .card-header{
+        background-image: linear-gradient(120deg,#009688,#615e5e);
+        color: #fff;
+    }
+    .card .stcard{
+        background-image: none;
+        background-color: #009688;
+    }
+    .card .stcard i{
+        color: #fff;
+    }
     .blockquote footer{ 
         text-align: right;
     }
@@ -314,6 +325,12 @@
         padding: 5px 8px;
         border-bottom: 1px solid #eeeeee87;
         transition: 0.3s;
+    }
+    .meRow:hover{
+        background-color: #f91b1b0f;
+    }
+    .meRow:hover a{
+        color: red;
     }
     .meRow a{
         color: #000;
@@ -489,6 +506,13 @@
     .scroll h3{
         font-size: 15px;
     }
+    .bg-dark{
+        height: 350px;
+    }
+    .bg-dark img{
+        width: 100%;
+        height: 100%;
+    }
 </style>
 
 <script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script><!-- font awsome script tag -->
@@ -497,18 +521,21 @@
     <div class="col-md-2"></div>
     <div class="row justify-content-center">
     <div class="col-md-8">
-            <div class="jumbotron">
-                <h1 class="display-4">Welcome to Upload Center!</h1>
-                <p class="lead">Upload your Course Material in here</p>
-                <hr class="my-4">
-                <p>Compatible with PDF and other Video formats</p>
-                <a href="teacher_dashboard.php"><button class="btn btn-info">Return to Dashboard</button></a>
+            <div class="card bg-dark text-white">
+                <img src="../img/teacherds.svg" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h1 class="display-4">Welcome to Upload Center!</h1>
+                    <p class="lead">Upload your Course Material in here</p>
+                    <hr class="my-4">
+                    <p>Compatible with PDF and other Video formats</p>
+                    <a href="teacher_dashboard.php"><button class="btn btn-info"><i class="fas fa-arrow-circle-left"></i></button></a>
+                </div>
                 
             </div>
         <div class="row">
         <div class="col-md-3">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Students
+                <div class="card-header stcard">Students
                   <button class="btn" style="margin-left: 2.9rem;" data-toggle="modal" data-target="#addst"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
                 <div class="card-body">
