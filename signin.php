@@ -118,8 +118,8 @@
 	<link rel="stylesheet" href="css/signin.css">
 </head>
 <body>
-
-	<div class="container mt-4">
+<div class="container" style="margin-top: 100px">
+	<div class="container mt-4" >
         <h2 class="text-center">Sign In</h2>
 
 
@@ -166,6 +166,7 @@
         </div>
 
 	</div>
+</div>
 	
 </body>
 <?php mysqli_close($connection); ?>

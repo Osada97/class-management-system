@@ -1,21 +1,14 @@
-<section id='navigation'>
-     <div class="container-fluid">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-        <a class="navbar-brand" href="#">Class Management</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="../class-management/signin.php">Sign In</a>
-                <a class="nav-item nav-link" href="../class-management/signup.php">Sign Up</a>
-                <a class="nav-item nav-link" href="../class-management/admin/admin_dashboard.php">Admin</a>
-            </div>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><a class="navbar-brand logo" href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+             id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php">Home</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="signin.php">Sign In</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="signup.php">Sign Up</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.php">About Us</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
+            </ul>
         </div>
-        </div>
-    </nav>
     </div>
- </section>
+</nav>

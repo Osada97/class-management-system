@@ -151,7 +151,7 @@
 </head>
 <body>
 
-    <div class="container text-center mt-4">
+    <div class="container text-center" style="margin-top: 100px;">
 
         <h2>Sign Up</h2>
     </div>
@@ -167,7 +167,7 @@
             }
 
         ?>
-        <div class="row mt-4">
+        <div class="row mt-4" style="margin-bottom: 100px">
             <div class="col-md-4"></div>
             <div class="col-md-4 ">
         <form action="signup.php" method="POST">
