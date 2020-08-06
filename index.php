@@ -4,22 +4,23 @@
     <main class="page landing-page">
         <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
             <div class="text">
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p><button class="btn btn-outline-light btn-lg" type="button">Learn More</button></div>
+                <h2>Tution Class Management System</h2>
+                <p>Upgrade your Learning Experience in 21 <sup>st</sup> Century</p>
+                <a href="signin.php"><button class="btn btn-outline-light btn-lg" type="button">Learn More</button></a></div>
         </section>
         <section class="clean-block clean-info dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Info</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                    <h2 class="text-info">For Educators</h2>
+                    <p>Upload your course materials and Distribute them among students easily.</p>
                 </div>
                 <div class="row align-items-center">
                     <div class="col-md-6"><img class="img-thumbnail" src="assets/img/scenery/image5.jpg"></div>
                     <div class="col-md-6">
-                        <h3>Lorem impsum dolor sit amet</h3>
+                        <h3>For Students</h3>
                         <div class="getting-started-info">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </div><button class="btn btn-outline-primary btn-lg" type="button">Join Now</button></div>
+                            <p>Choose an Educator, Join with a class Download course materials, Stream videos in anytime anywhere</p>
+                        <a href="signup.php"><button class="btn btn-outline-primary btn-lg" type="button">Join Now</button></a></div>
                 </div>
             </div>
         </section>
@@ -30,16 +31,16 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
-                        <h4>Bootstrap 4</h4>
+                    <div class="col-md-5 feature-box"><i class="icon-people icon"></i>
+                        <h4>Big Community</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                     </div>
                     <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
-                        <h4>Customizable</h4>
+                        <h4>On Demand</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                     </div>
-                    <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
-                        <h4>Responsive</h4>
+                    <div class="col-md-5 feature-box"><i class="icon-like icon"></i>
+                        <h4>Free</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                     </div>
                     <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
@@ -49,28 +50,28 @@
                 </div>
             </div>
         </section>
-        <section class="clean-block slider dark">
-            <div class="container">
-                <div class="block-heading">
-                    <h2 class="text-info">Slider</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
-                </div>
-                <div class="carousel slide" data-ride="carousel" id="carousel-1">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active"><img class="w-100 d-block" src="assets/img/scenery/image1.jpg" alt="Slide Image"></div>
-                        <div class="carousel-item"><img class="w-100 d-block" src="assets/img/scenery/image4.jpg" alt="Slide Image"></div>
-                        <div class="carousel-item"><img class="w-100 d-block" src="assets/img/scenery/image6.jpg" alt="Slide Image"></div>
-                    </div>
-                    <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button"
-                            data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-1" data-slide-to="1"></li>
-                        <li data-target="#carousel-1" data-slide-to="2"></li>
-                    </ol>
-                </div>
-            </div>
-        </section>
+<!--        <section class="clean-block slider dark">-->
+<!--            <div class="container">-->
+<!--                <div class="block-heading">-->
+<!--                    <h2 class="text-info">Slider</h2>-->
+<!--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>-->
+<!--                </div>-->
+<!--                <div class="carousel slide" data-ride="carousel" id="carousel-1">-->
+<!--                    <div class="carousel-inner" role="listbox">-->
+<!--                        <div class="carousel-item active"><img class="w-100 d-block" src="assets/img/scenery/image1.jpg" alt="Slide Image"></div>-->
+<!--                        <div class="carousel-item"><img class="w-100 d-block" src="assets/img/scenery/image4.jpg" alt="Slide Image"></div>-->
+<!--                        <div class="carousel-item"><img class="w-100 d-block" src="assets/img/scenery/image6.jpg" alt="Slide Image"></div>-->
+<!--                    </div>-->
+<!--                    <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button"-->
+<!--                            data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>-->
+<!--                    <ol class="carousel-indicators">-->
+<!--                        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>-->
+<!--                        <li data-target="#carousel-1" data-slide-to="1"></li>-->
+<!--                        <li data-target="#carousel-1" data-slide-to="2"></li>-->
+<!--                    </ol>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
         <section class="clean-block about-us">
             <div class="container">
                 <div class="block-heading">
