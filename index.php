@@ -1,4 +1,3 @@
-
 <?php include_once ("inc/header.php")?>
 <?php include_once ("inc/nav.php") ?>
     <main class="page landing-page">
@@ -28,24 +27,24 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Features</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                    <p>Experience well enhanced and improved education with Lanka Elearning</p>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-5 feature-box"><i class="icon-people icon"></i>
                         <h4>Big Community</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                        <p>Join with 1000s of other students and more than 100 Educators.</p>
                     </div>
                     <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
                         <h4>On Demand</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                        <p>More than 1000 on demand courses. Enroll with what you want watch them when you need</p>
                     </div>
                     <div class="col-md-5 feature-box"><i class="icon-like icon"></i>
                         <h4>Free</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                        <p>Dont pay even a cent get all these services for free .</p>
                     </div>
                     <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
                         <h4>All Browser Compatibility</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                        <p>Flexible rendering for every browser in the world. Use any browse you want we serve you anywhere anytime</p>
                     </div>
                 </div>
             </div>

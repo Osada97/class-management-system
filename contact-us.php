@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Contact Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                    <p>Feel Free to message us we reply in lightning speed</p>
                 </div>
                 <form>
                     <div class="form-group"><label>Name</label><input class="form-control" type="text"></div>
