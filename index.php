@@ -14,7 +14,7 @@
                     <p>Upload your course materials and Distribute them among students easily.</p>
                 </div>
                 <div class="row align-items-center">
-                    <div class="col-md-6"><img class="img-thumbnail" src="assets/img/scenery/image5.jpg"></div>
+                    <div class="col-md-6"><img class="img-thumbnail" src="img/students.jpg"></div>
                     <div class="col-md-6">
                         <h3>For Students</h3>
                         <div class="getting-started-info">
