@@ -117,10 +117,20 @@
 	<title>LankaE learn</title>
 	<link rel="stylesheet" href="css/signin.css">
 </head>
+<style>
+	form{
+		margin: 80px 0;
+		width: 57%;
+	}
+	form .form-control:focus{
+		box-shadow: none;
+		border-color: red;
+	}
+</style>
 <body>
 <div class="container" style="margin-top: 100px">
 	<div class="container mt-4" >
-        <h2 class="text-center">Sign In</h2>
+        <h2 class="text-center" style="color: red;margin-top: 15px;">Sign In</h2>
 
 
 
@@ -160,7 +170,7 @@
 				<input type="password" name="password" id="password" class="form-control" >
             </div>
             <div class="text-center">
-				<input type="submit" value="Sign In" name="submit" class="btn btn-primary" >
+				<input type="submit" value="Sign In" name="submit" class="btn btn-primary" style="background-color: #ee0606bf; border-color: red">
             </div>
 		</form>
         </div>

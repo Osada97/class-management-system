@@ -1,16 +1,46 @@
 <?php include_once ("inc/header.php")?>
+<style>
+    .btn:hover{
+        background-color: #ef3737bf;
+        border-color: #ef3737bf;
+    }
+    .btn:focus{
+        background-color: #ef3737bf;
+        border-color: #ef3737bf;
+        box-shadow: none;
+        color: #fff;
+    }
+    .btn-outline-primary{
+        color: #ef3737bf;
+        border-color: #ef3737bf;
+    }
+    .btn-outline-primary:not(:disabled):not(.disabled):active{
+        color: #fff;
+        border-color: #ef3737bf;
+        background-color: #ef3737bf;
+        box-shadow: none;
+    }
+    .white:hover{
+        background-color: #fff;
+        border-color: #fff;
+    }
+    i{
+        color: red;
+    }
+
+</style>
 <?php include_once ("inc/nav.php") ?>
     <main class="page landing-page">
-        <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
+        <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:#95131a75;">
             <div class="text">
                 <h2>Tution Class Management System</h2>
                 <p>Upgrade your Learning Experience in 21 <sup>st</sup> Century</p>
-                <a href="signin.php"><button class="btn btn-outline-light btn-lg" type="button">Learn More</button></a></div>
+                <a href="signin.php"><button class="btn btn-outline-light btn-lg white" type="button">Learn More</button></a></div>
         </section>
         <section class="clean-block clean-info dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">For Educators</h2>
+                    <h2 class="text-info" style="color: red !important">For Educators</h2>
                     <p>Upload your course materials and Distribute them among students easily.</p>
                 </div>
                 <div class="row align-items-center">
@@ -26,23 +56,23 @@
         <section class="clean-block features">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Features</h2>
+                    <h2 class="text-info" style="color: red !important">Features</h2>
                     <p>Experience well enhanced and improved education with Lanka Elearning</p>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-5 feature-box"><i class="icon-people icon"></i>
+                    <div class="col-md-5 feature-box"><i class="icon-people icon"  style="color: red"></i>
                         <h4>Big Community</h4>
                         <p>Join with 1000s of other students and more than 100 Educators.</p>
                     </div>
-                    <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
+                    <div class="col-md-5 feature-box"><i class="icon-pencil icon"  style="color: red"></i>
                         <h4>On Demand</h4>
                         <p>More than 1000 on demand courses. Enroll with what you want watch them when you need</p>
                     </div>
-                    <div class="col-md-5 feature-box"><i class="icon-like icon"></i>
+                    <div class="col-md-5 feature-box"><i class="icon-like icon"  style="color: red"></i>
                         <h4>Free</h4>
                         <p>Dont pay even a cent get all these services for free .</p>
                     </div>
-                    <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
+                    <div class="col-md-5 feature-box"><i class="icon-refresh icon"  style="color: red"></i>
                         <h4>All Browser Compatibility</h4>
                         <p>Flexible rendering for every browser in the world. Use any browse you want we serve you anywhere anytime</p>
                     </div>
@@ -74,7 +104,7 @@
         <section class="clean-block about-us">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">About Us</h2>
+                    <h2 class="text-info" style="color: red !important">About Us</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                 </div>
                 <div class="row justify-content-center">

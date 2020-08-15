@@ -149,11 +149,21 @@
     <link rel="stylesheet" href="css/signup.css">
     <title>LankaE learn</title>
 </head>
+<style>
+    form{
+        margin: 80px 0;
+        width: 100%;
+    }
+    form .form-control:focus{
+        box-shadow: none;
+        border-color: red;
+    }
+</style>
 <body>
 
     <div class="container text-center" style="margin-top: 100px;">
 
-        <h2>Sign Up</h2>
+        <h2 style="color: red">Sign Up</h2>
     </div>
 
         <?php  
@@ -215,7 +225,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <input class="btn btn-primary" type="submit" name="submit" value="submit">
+                    <input class="btn btn-primary" type="submit" name="submit" value="submit" style="background-color: #ee0606bf; border-color: red">
                 </div>
             </div>
         </form> 

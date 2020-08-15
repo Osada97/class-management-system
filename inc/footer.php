@@ -1,3 +1,8 @@
+<style>
+    ul li:before,ul li:after{
+        background-color: red !important;
+    }
+</style>
 
     <footer>
         <footer class="page-footer dark">
@@ -6,15 +11,15 @@
                     <div class="col-sm-3">
                         <h5>Get started</h5>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Sign up</a></li>
+                            <li><a href="../index.php">Home</a></li>
+                            <li><a href="../signup.php">Sign up</a></li>
                             <li><a href="#">Downloads</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-3">
                         <h5>About us</h5>
                         <ul>
-                            <li><a href="#">Company Information</a></li>
+                            <li><a href="../contact-us.php">Company Information</a></li>
                             <li><a href="#">Contact us</a></li>
                             <li><a href="#">Reviews</a></li>
                         </ul>
