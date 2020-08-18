@@ -1,4 +1,6 @@
 <?php require_once('../inc/connection.php'); ?>
+<?php require_once('../inc/header.php'); ?>
+
 
 <?php
 
@@ -101,7 +103,6 @@
 <body>
 
     <div class="main_container">
-        <h1>Add Admins</h1>
 
         <?php
             if(!empty($errors)){
@@ -114,24 +115,48 @@
                 echo "</div>";
             }
         ?>
+        <div class="container col-md-6">
+            <h1 class="mt-4 mb-4">Add Admins</h1>
 
-        <form action="add_admins.php" method="POST">
-            <p>
-                <label for="admin_name">Admin Name:</label>
-                <input type="text" name="admin_name" id="admin_name">
-            </p>
-            <p>
-                <label for="email">Email:</label>
-                <input type="text" name="email" id="email">
-            </p>
-            <p>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
-                <input type="button" name="show_hide" id="show_hide" value="show">
-            </p>
-            <input type="submit" value="Add Admin" name="submit">
-        </form>
+            <form action="add_admins.php" method="POST">
+<!--            <p>-->
+<!--                <label for="admin_name">Admin Name:</label>-->
+<!--                <input type="text" name="admin_name" id="admin_name">-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                <label for="email">Email:</label>-->
+<!--                <input type="text" name="email" id="email">-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                <label for="password">Password:</label>-->
+<!--                <input type="password" name="password" id="password">-->
+<!--                <input type="button" name="show_hide" id="show_hide" value="show">-->
+<!--            </p>-->
+<!--            <input type="submit" value="Add Admin" name="submit">-->
+<!--        </form>-->
 
+                <div class="form-group">
+                    <label for="admin_name">Admin Name</label>
+                    <input type="text" class="form-control" name="admin_name" id="admin_name" aria-describedby="emailHelp" placeholder="Enter Admin Name">
+
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control"  name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+
+
+                        <span class="badge badge-warning"> <input type="button"   name="show_hide" id="show_hide" value="show"></span>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary float-right">Add admin</button>
+            </form>
+        </div>
     </div>
     
         <script>
