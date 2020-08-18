@@ -147,12 +147,9 @@
 
                 </div>
                 <div class="form-group">
+
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-
-
-                        <span class="badge badge-warning"> <input type="button"   name="show_hide" id="show_hide" value="show"></span>
-
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"> <!--<span class="badge badge-warning"> <input type="button"   name="show_hide" id="show_hide" value="show"></span>-->
                 </div>
 
                 <button type="submit" class="btn btn-primary float-right">Add admin</button>
@@ -160,7 +157,7 @@
         </div>
     </div>
     
-        <script>
+       <!-- <script>
             //show and hide password
             let password = document.querySelector('#password');
             let showButton = document.querySelector('#show_hide');
@@ -179,7 +176,7 @@
                     }
                 });
 
-        </script>
+        </script>-->
 </body>
 </html>
 <?php include_once ("../inc/admin_footer.php") ?>
