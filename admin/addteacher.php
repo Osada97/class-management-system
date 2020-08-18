@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
 
     foreach ($length as $field => $value) {
         if(strlen($_POST[$field]) > $value){
-            $errors[] = $field . "Must Be Less Than " . $value . " Charcters";
+            $errors[] = $field . " Must Be Less Than " . $value . " Charcters";
         }
     }
 
@@ -76,7 +76,6 @@ if(isset($_POST['submit'])){
 
             if($email_result){
                 if(mysqli_num_rows($email_result)!=0){
-                    print_r(mysqli_num_rows($email_result));
                     $errors[] = "Email Is Already Exists";
                 }
                 else{
@@ -133,7 +132,32 @@ if(isset($_POST['submit'])){
 <div class="container-fluid">
     <h1 class="mt-4">Add Teacher</h1>
 
-    <!-- show eroors  -->
+<style>
+    .container{
+        text-align: left !important;
+        margin-top: 45px;
+    }
+    form label{
+        font-weight: 600;
+    }
+    .errors{
+        margin-top: 25px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .errors p{
+        color: red;
+    }
+    .form-row input:focus{
+        box-shadow: none;
+        border-color: red;
+    }
+</style>
+
+    <div class="container">
+         <!-- show eroors  -->
     <?php
     if(!empty($errors)){
 
@@ -148,51 +172,50 @@ if(isset($_POST['submit'])){
     }
 
     ?>
-
-
-    <div class="container">
         <form class="needs-validation" novalidate action="addteacher.php" method="POST">
             <div class="form-row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom01">First name</label>
                     <input type="text" name="firstname" class="form-control" id="validationCustom01" value="<?php echo $first_name; ?>" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom02">Last name</label>
                     <input type="text" name="lastname" class="form-control" id="validationCustom02" value="<?php echo $last_name; ?>" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+            </div>
+            <div class="form-row">   
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom02">Email</label>
                     <input type="email" name="email" class="form-control" id="validationCustom02" value="<?php echo $email; ?>" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom03">Phone No</label>
                     <input type="text" class="form-control" id="validationCustom03" name="phonenumber" value ="<?php echo $phone_number; ?>" required>
                     <div class="invalid-feedback">
                         Please provide a valid Phone No
                     </div>
                 </div>
+            </div>
+            <div class="form-row">
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom03">Password</label>
                     <input type="password" name="password" class="form-control"  id="validationCustom03" required>
                     <div class="invalid-feedback">
                         Password filed is required!
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <label for="validationCustom03">confirm password</label>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom03">Confirm password</label>
                     <input type="password" name="cpassword" class="form-control" id="validationCustom03" required>
                     <div class="invalid-feedback">
                         Please Check Your Password

@@ -101,9 +101,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LankaE learn</title>
 </head>
+<style>
+    .container{
+        max-width: 70%;
+    }
+    .container label{
+        font-weight: 600;
+    }
+    .show{
+        position: absolute;
+        right: 15px;
+        background:none;
+        border:none;
+        outline: none;
+        margin-left: 5px;
+        width: 35px;
+    }
+    .form-group input:focus{
+        box-shadow: none;
+        border-color: red;
+    }
+    .error p{
+        color: red;
+    }
+</style>
 <body>
 
     <div class="main_container">
+
+        <div class="container col-md-6">
+            <h1 class="mt-4 mb-4">Add Admins</h1>
 
         <?php
             if(!empty($errors)){
@@ -116,9 +143,6 @@
                 echo "</div>";
             }
         ?>
-        <div class="container col-md-6">
-            <h1 class="mt-4 mb-4">Add Admins</h1>
-
             <form action="add_admins.php" method="POST">
 <!--            <p>-->
 <!--                <label for="admin_name">Admin Name:</label>-->
@@ -148,14 +172,14 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-
-
-                        <span class="badge badge-warning"> <input type="button"   name="show_hide" id="show_hide" value="show"></span>
+                    <div class="form-inline">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" style="width: 100%;position: relative;">
+                        <button type="button" class="show"  name="show_hide" id="show_hide"><i class="far fa-eye"></i></button>
+                    </div>
 
                 </div>
 
-                <button type="submit" class="btn btn-primary float-right">Add admin</button>
+                <button type="submit"  name="submit" class="btn btn-primary float-right">Add admin</button>
             </form>
         </div>
     </div>
@@ -182,4 +206,5 @@
         </script>
 </body>
 </html>
+<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script><!-- font awsome script -->
 <?php include_once ("../inc/admin_footer.php") ?>
