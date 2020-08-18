@@ -1,5 +1,6 @@
 <?php require_once('../inc/connection.php'); ?>
 <?php require_once('../inc/header.php'); ?>
+<?php require_once('../inc/admin_header.php'); ?>
 
 
 <?php
@@ -181,3 +182,4 @@
         </script>
 </body>
 </html>
+<?php include_once ("../inc/admin_footer.php") ?>

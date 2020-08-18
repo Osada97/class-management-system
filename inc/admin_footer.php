@@ -13,7 +13,7 @@
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-
+<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
 
   <!-- Menu Toggle Script -->
   <script>
