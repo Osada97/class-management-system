@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info" style="color: red !important;">About Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                    <p>We are a digital marketing company that focuses on new trends and web solutions worldwide</p>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-6 col-lg-4">
